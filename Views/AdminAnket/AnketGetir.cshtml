@@ -1,0 +1,34 @@
+﻿@model ibrasOneriAnket.Models.AnketCevap
+
+@{
+    ViewBag.Title = "AnketGetir";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Anket Bilgileri</h2>
+@using (Html.BeginForm("AnketGuncelle", "AdminAnket", FormMethod.Post))
+{
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        <label>Anket Adı: </label><br />
+        @Html.TextBoxFor(q => q.AnketOlustur.AnketAdi, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Cevap: </label><br />
+        @Html.TextBoxFor(q => q.Cevap, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Durum: </label><br />
+        @Html.TextBoxFor(q => q.AnketOlustur.Durum, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</div>
+}
+
+
+
+
+

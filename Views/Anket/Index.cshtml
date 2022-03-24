@@ -1,0 +1,36 @@
+﻿@model ibrasOneriAnket.Sinif.Class1
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h1 style="margin:25px;text-align:center;">GÜNÜN ANKETİ </h1>
+<form method="post" id="#fr1" style="margin:35px;">
+    <fieldset>
+        <form method="post">
+            @*SORU*@
+            @foreach (var x in Model.DegerAO)
+            {
+                <h1>@x.AnketAdi</h1>
+                <input type="hidden" name="SoruId" value="@x.Id" id="inlineRadio_@x.Id"><br />
+
+                @*<input style="font-size:30px;border:none; width:2550px; height:auto;" type="text" value="@x.AnketAdi" name="AnketAdi" id="inlineRadio_@x.Id" />*@
+            }
+            @foreach (var y in Model.DegerAC)
+            {
+                <div class="form-check form-check-inline" style="font-size:26px;">
+                    <input class="form-check-input" type="radio" name="CevapId" id="inlineRadio_@y.Id" value="@y.Id">
+                    <label class="form-check-label" for="inlineRadio_@y.Id">@y.Cevap </label>
+                </div>
+                <br /><p id="p1"> </p>
+            }
+            <br/> <button type="submit" class="btn btn-success" style="font-size:30px;">Cevabı Gönder</button>
+        </form>
+    </fieldset>
+</form>
+
+@*<script>
+    var cevaps=document.querySelector('input[name="Cevap"]:checked').value;
+</script>*@

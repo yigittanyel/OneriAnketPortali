@@ -1,0 +1,15 @@
+﻿@model ibrasOneriAnket.Models.Oneri
+
+@{
+    ViewBag.Title = "UploadFile";
+}
+<h2>Dosya - Resim Yükle</h2>
+
+@using (Html.BeginForm("UploadFile","Oneri", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @TempData["result"] //Dosya upload sonucu burada yazacak.
+    <div>
+        <input type="file" name="file" class="button" />
+    </div>
+}
+

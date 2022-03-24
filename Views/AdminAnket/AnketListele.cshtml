@@ -1,0 +1,55 @@
+﻿@using ibrasOneriAnket.Models
+@model List<AnketCevap>
+
+@{
+    ViewBag.Title = "AnketListele";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Anket Listesi</h2>
+<br />
+<br />
+<table class="table table-striped table-dark" id="tbl1">
+    <thead>
+        <tr>
+            <th scope="col">Anket Adı</th>
+            <th scope="col">Cevaplar</th>
+            <th scope="col">Durum</th>
+            <th scope="col">Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.AnketOlustur.AnketAdi</td>
+                <td>@x.Cevap</td>
+                <td>@x.AnketOlustur.Durum</td>
+                @*<td><a href="/AdminAnket/AnketSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>*@
+                <td><a href="/AdminAnket/AnketGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+    $('#tbl1').dataTable({});
+
+</script>
+
+
+
+

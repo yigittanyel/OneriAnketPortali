@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D33CDB74-4192-429A-9C5E-BAD484BCD4E4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ibrasOneriAnket</RootNamespace>
+    <AssemblyName>ibrasOneriAnket</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44376</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminAnketController.cs" />
+    <Compile Include="Controllers\AdminOneriController.cs" />
+    <Compile Include="Controllers\AnketController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullaniciAnketSonuclarController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OneriController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnketCevap.cs" />
+    <Compile Include="Models\AnketOlustur.cs" />
+    <Compile Include="Models\Birim.cs" />
+    <Compile Include="Models\CustomAuthorization.cs" />
+    <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\KullaniciAnketCevap.cs" />
+    <Compile Include="Models\Oneri.cs" />
+    <Compile Include="Models\OneriKullanici.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\PersonelRoleProvider.cs" />
+    <Compile Include="Sinif\Class1.cs" />
+    <Compile Include="Sinif\Class2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="color-admin\assets\css\animate.css" />
+    <Content Include="color-admin\assets\css\app-style.css" />
+    <Content Include="color-admin\assets\css\bootstrap.min.css" />
+    <Content Include="color-admin\assets\css\icons.css" />
+    <Content Include="color-admin\assets\css\sidebar-menu.css" />
+    <Content Include="color-admin\assets\flags\4x3\au.svg" />
+    <Content Include="color-admin\assets\flags\4x3\ca.svg" />
+    <Content Include="color-admin\assets\flags\4x3\cn.svg" />
+    <Content Include="color-admin\assets\flags\4x3\gb.svg" />
+    <Content Include="color-admin\assets\flags\4x3\in.svg" />
+    <Content Include="color-admin\assets\flags\4x3\us.svg" />
+    <Content Include="color-admin\assets\images\authentication-bg.png" />
+    <Content Include="color-admin\assets\images\avatars\1.jpg" />
+    <Content Include="color-admin\assets\images\avatars\avatar-1.png" />
+    <Content Include="color-admin\assets\images\avatars\avatar-17.png" />
+    <Content Include="color-admin\assets\images\avatars\avatar-2.png" />
+    <Content Include="color-admin\assets\images\avatars\avatar-3.png" />
+    <Content Include="color-admin\assets\images\avatars\avatar-4.png" />
+    <Content Include="color-admin\assets\images\gallery\1.jpg" />
+    <Content Include="color-admin\assets\images\gallery\10.jpg" />
+    <Content Include="color-admin\assets\images\gallery\11.jpg" />
+    <Content Include="color-admin\assets\images\gallery\12.jpg" />
+    <Content Include="color-admin\assets\images\gallery\13.jpg" />
+    <Content Include="color-admin\assets\images\gallery\14.jpg" />
+    <Content Include="color-admin\assets\images\gallery\15.jpg" />
+    <Content Include="color-admin\assets\images\gallery\16.jpg" />
+    <Content Include="color-admin\assets\images\gallery\17.jpg" />
+    <Content Include="color-admin\assets\images\gallery\18.jpg" />
+    <Content Include="color-admin\assets\images\gallery\19.jpg" />
+    <Content Include="color-admin\assets\images\gallery\2.jpg" />
+    <Content Include="color-admin\assets\images\gallery\20.jpg" />
+    <Content Include="color-admin\assets\images\gallery\21.jpg" />
+    <Content Include="color-admin\assets\images\gallery\22.jpg" />
+    <Content Include="color-admin\assets\images\gallery\23.jpg" />
+    <Content Include="color-admin\assets\images\gallery\24.jpg" />
+    <Content Include="color-admin\assets\images\gallery\25.jpg" />
+    <Content Include="color-admin\assets\images\gallery\26.jpg" />
+    <Content Include="color-admin\assets\images\gallery\27.jpg" />
+    <Content Include="color-admin\assets\images\gallery\28.jpg" />
+    <Content Include="color-admin\assets\images\gallery\29.jpg" />
+    <Content Include="color-admin\assets\images\gallery\3.jpg" />
+    <Content Include="color-admin\assets\images\gallery\30.jpg" />
+    <Content Include="color-admin\assets\images\gallery\4.jpg" />
+    <Content Include="color-admin\assets\images\gallery\5.jpg" />
+    <Content Include="color-admin\assets\images\gallery\6.jpg" />
+    <Content Include="color-admin\assets\images\gallery\7.jpg" />
+    <Content Include="color-admin\assets\images\gallery\8.jpg" />
+    <Content Include="color-admin\assets\images\gallery\9.jpg" />
+    <Content Include="color-admin\assets\images\gallery\authentication-bg.png" />
+    <Content Include="color-admin\assets\images\gallery\modal-img.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\1.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\10.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\11.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\12.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\14.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\15.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\16.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\2.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\3.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\4.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\5.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\6.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\7.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\8.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\big\9.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\1.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\10.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\11.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\12.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\14.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\15.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\16.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\2.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\3.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\4.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\5.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\6.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\7.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\8.jpg" />
+    <Content Include="color-admin\assets\images\lightboxgallery\small\9.jpg" />
+    <Content Include="color-admin\assets\images\logo-icon.png" />
+    <Content Include="color-admin\assets\images\products\1.png" />
+    <Content Include="color-admin\assets\images\products\2.png" />
+    <Content Include="color-admin\assets\images\products\3.png" />
+    <Content Include="color-admin\assets\images\products\4.png" />
+    <Content Include="color-admin\assets\images\products\5.png" />
+    <Content Include="color-admin\assets\images\products\6.png" />
+    <Content Include="color-admin\assets\images\texture.jpg" />
+    <Content Include="color-admin\assets\images\timeline\cd-icon-location.svg" />
+    <Content Include="color-admin\assets\js\app-script.js" />
+    <Content Include="color-admin\assets\js\bootstrap.min.js" />
+    <Content Include="color-admin\assets\js\index.js" />
+    <Content Include="color-admin\assets\js\jquery.min.js" />
+    <Content Include="color-admin\assets\js\popper.min.js" />
+    <Content Include="color-admin\assets\js\sidebar-menu.js" />
+    <Content Include="color-admin\assets\js\waves.js" />
+    <Content Include="color-admin\assets\js\widgets.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\css\buttons.bootstrap4.min.css" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\css\dataTables.bootstrap4.min.css" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\buttons.bootstrap4.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\buttons.colVis.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\buttons.html5.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\buttons.print.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\dataTables.buttons.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\jszip.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\pdfmake.min.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\vfs_fonts.js" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="color-admin\assets\plugins\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="color-admin\assets\plugins\Chart.js\Chart.min.js" />
+    <Content Include="color-admin\assets\plugins\fullcalendar\css\fullcalendar.css" />
+    <Content Include="color-admin\assets\plugins\fullcalendar\js\fullcalendar-custom-script.js" />
+    <Content Include="color-admin\assets\plugins\fullcalendar\js\fullcalendar.min.js" />
+    <Content Include="color-admin\assets\plugins\fullcalendar\js\moment.js" />
+    <Content Include="color-admin\assets\plugins\gmaps\map-custom-script.js" />
+    <Content Include="color-admin\assets\plugins\lightboxgallery\css\lightboxgallery-min.css" />
+    <Content Include="color-admin\assets\plugins\lightboxgallery\js\lightboxgallery-min.js" />
+    <Content Include="color-admin\assets\plugins\notifications\css\lobibox.min.css" />
+    <Content Include="color-admin\assets\plugins\notifications\js\lobibox.min.js" />
+    <Content Include="color-admin\assets\plugins\notifications\js\notifications.min.js" />
+    <Content Include="color-admin\assets\plugins\simplebar\css\simplebar.css" />
+    <Content Include="color-admin\assets\plugins\simplebar\js\simplebar.js" />
+    <Content Include="color-admin\assets\plugins\sparkline-charts\jquery.sparkline.min.js" />
+    <Content Include="color-admin\assets\plugins\summernote\dist\summernote-bs4.css" />
+    <Content Include="color-admin\assets\plugins\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="color-admin\assets\plugins\vectormap\jquery-jvectormap-2.0.2.css" />
+    <Content Include="color-admin\assets\plugins\vectormap\jquery-jvectormap-2.0.2.min.js" />
+    <Content Include="color-admin\assets\plugins\vectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="color-admin\assets\plugins\vertical-timeline\css\vertical-timeline.css" />
+    <Content Include="color-admin\assets\plugins\vertical-timeline\js\vertical-timeline.js" />
+    <Content Include="color-admin\authentication-dark-reset-password.html" />
+    <Content Include="color-admin\authentication-dark-signin.html" />
+    <Content Include="color-admin\authentication-dark-signin2.html" />
+    <Content Include="color-admin\calendar.html" />
+    <Content Include="color-admin\charts-chartjs.html" />
+    <Content Include="color-admin\charts-flot.html" />
+    <Content Include="color-admin\charts-morris.html" />
+    <Content Include="color-admin\charts-other.html" />
+    <Content Include="color-admin\charts-sparkline.html" />
+    <Content Include="color-admin\components-grid-layouts.html" />
+    <Content Include="color-admin\components-horizontal-timeline.html" />
+    <Content Include="color-admin\components-pricing-table.html" />
+    <Content Include="color-admin\components-vertical-timeline.html" />
+    <Content Include="color-admin\form-advanced.html" />
+    <Content Include="color-admin\form-layouts.html" />
+    <Content Include="color-admin\form-text-editor.html" />
+    <Content Include="color-admin\form-validation.html" />
+    <Content Include="color-admin\icons-flags.html" />
+    <Content Include="color-admin\icons-simple-line-icons.html" />
+    <Content Include="color-admin\index.html" />
+    <Content Include="color-admin\index2.html" />
+    <Content Include="color-admin\index3.html" />
+    <Content Include="color-admin\mail-compose.html" />
+    <Content Include="color-admin\mail-inbox.html" />
+    <Content Include="color-admin\mail-read.html" />
+    <Content Include="color-admin\maps-google.html" />
+    <Content Include="color-admin\pages-404.html" />
+    <Content Include="color-admin\pages-invoice.html" />
+    <Content Include="color-admin\pages-user-profile.html" />
+    <Content Include="color-admin\table-color-tables.html" />
+    <Content Include="color-admin\table-data-tables.html" />
+    <Content Include="color-admin\table-header-tables.html" />
+    <Content Include="color-admin\table-simple-tables.html" />
+    <Content Include="color-admin\table-striped-color-tables.html" />
+    <Content Include="color-admin\ui-alerts.html" />
+    <Content Include="color-admin\ui-bootstrap-elements.html" />
+    <Content Include="color-admin\ui-buttons.html" />
+    <Content Include="color-admin\ui-cards.html" />
+    <Content Include="color-admin\ui-checkbox-radio.html" />
+    <Content Include="color-admin\ui-color-palette.html" />
+    <Content Include="color-admin\ui-lightbox-gallery.html" />
+    <Content Include="color-admin\ui-list-groups.html" />
+    <Content Include="color-admin\ui-modals.html" />
+    <Content Include="color-admin\ui-notification.html" />
+    <Content Include="color-admin\ui-tabs-accordions.html" />
+    <Content Include="color-admin\ui-typography.html" />
+    <Content Include="color-admin\widgets.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="loginTema\css\font-awesome.min.css" />
+    <Content Include="loginTema\css\style.css" />
+    <Content Include="loginTema\images\image.jpg" />
+    <Content Include="loginTema\images\tick.png" />
+    <Content Include="loginTema\index.html" />
+    <Content Include="loginTema\w3layouts-License.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="color-admin\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="color-admin\assets\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="color-admin\assets\plugins\summernote\dist\font\summernote291f.woff" />
+    <Content Include="loginTema\fonts\fontawesome-webfont.eot" />
+    <Content Include="loginTema\fonts\fontawesome-webfont.ttf" />
+    <Content Include="loginTema\fonts\fontawesome-webfont.woff" />
+    <Content Include="loginTema\fonts\fontawesome-webfont.woff2" />
+    <Content Include="loginTema\fonts\FontAwesome.otf" />
+    <Content Include="Web\dist\401.html" />
+    <Content Include="Web\dist\404.html" />
+    <Content Include="Web\dist\500.html" />
+    <Content Include="Web\dist\assets\demo\chart-area-demo.js" />
+    <Content Include="Web\dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="Web\dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="Web\dist\assets\demo\datatables-demo.js" />
+    <Content Include="Web\dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="Web\dist\charts.html" />
+    <Content Include="Web\dist\css\1.png" />
+    <Content Include="Web\dist\css\styles.css" />
+    <Content Include="Web\dist\index.html" />
+    <Content Include="Web\dist\js\scripts.js" />
+    <Content Include="Web\dist\layout-sidenav-light.html" />
+    <Content Include="Web\dist\layout-static.html" />
+    <Content Include="Web\dist\login.html" />
+    <Content Include="Web\dist\password.html" />
+    <Content Include="Web\dist\register.html" />
+    <Content Include="Web\dist\tables.html" />
+    <Content Include="Web\index.html" />
+    <Content Include="Web\scripts\build-assets.js" />
+    <Content Include="Web\scripts\build-pug.js" />
+    <Content Include="Web\scripts\build-scripts.js" />
+    <Content Include="Web\scripts\build-scss.js" />
+    <Content Include="Web\scripts\clean.js" />
+    <Content Include="Web\scripts\render-assets.js" />
+    <Content Include="Web\scripts\render-pug.js" />
+    <Content Include="Web\scripts\render-scripts.js" />
+    <Content Include="Web\scripts\render-scss.js" />
+    <Content Include="Web\scripts\sb-watch.js" />
+    <Content Include="Web\scripts\start-debug.js" />
+    <Content Include="Web\scripts\start.js" />
+    <Content Include="Web\src\assets\demo\chart-area-demo.js" />
+    <Content Include="Web\src\assets\demo\chart-bar-demo.js" />
+    <Content Include="Web\src\assets\demo\chart-pie-demo.js" />
+    <Content Include="Web\src\assets\demo\datatables-demo.js" />
+    <Content Include="Web\src\assets\img\error-404-monochrome.svg" />
+    <Content Include="Web\src\js\scripts.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Oneri\Index.cshtml" />
+    <Content Include="Views\Login\GirisYap.cshtml" />
+    <Content Include="Web\.browserslistrc" />
+    <Content Include="Web\.gitignore" />
+    <Content Include="Web\.travis.yml" />
+    <Content Include="Web\LICENSE" />
+    <Content Include="Web\package-lock.json" />
+    <Content Include="Web\package.json" />
+    <Content Include="Web\README.md" />
+    <Content Include="Web\src\pug\layouts\authentication.pug" />
+    <Content Include="Web\src\pug\layouts\dashboard.pug" />
+    <Content Include="Web\src\pug\layouts\error.pug" />
+    <Content Include="Web\src\pug\layouts\includes\footer.pug" />
+    <Content Include="Web\src\pug\layouts\includes\head\css.pug" />
+    <Content Include="Web\src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="Web\src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="Web\src\pug\layouts\includes\head\title.pug" />
+    <Content Include="Web\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="Web\src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="Web\src\pug\layouts\includes\scripts.pug" />
+    <Content Include="Web\src\pug\pages\401.pug" />
+    <Content Include="Web\src\pug\pages\404.pug" />
+    <Content Include="Web\src\pug\pages\500.pug" />
+    <Content Include="Web\src\pug\pages\charts.pug" />
+    <Content Include="Web\src\pug\pages\includes\datatable.pug" />
+    <Content Include="Web\src\pug\pages\includes\page-header.pug" />
+    <Content Include="Web\src\pug\pages\index.pug" />
+    <Content Include="Web\src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="Web\src\pug\pages\layout-static.pug" />
+    <Content Include="Web\src\pug\pages\login.pug" />
+    <Content Include="Web\src\pug\pages\password.pug" />
+    <Content Include="Web\src\pug\pages\register.pug" />
+    <Content Include="Web\src\pug\pages\tables.pug" />
+    <Content Include="Web\src\scss\layout\_authentication.scss" />
+    <Content Include="Web\src\scss\layout\_dashboard-default.scss" />
+    <Content Include="Web\src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="Web\src\scss\layout\_error.scss" />
+    <Content Include="Web\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="Web\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="Web\src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="Web\src\scss\navigation\_nav.scss" />
+    <Content Include="Web\src\scss\navigation\_topnav.scss" />
+    <Content Include="Web\src\scss\styles.scss" />
+    <Content Include="Web\src\scss\variables\_navigation.scss" />
+    <Content Include="Web\src\scss\variables\_spacing.scss" />
+    <Content Include="Web\src\scss\_global.scss" />
+    <Content Include="Web\src\scss\_variables.scss" />
+    <Content Include="Views\Shared\_AdminControlLayout.cshtml" />
+    <Content Include="Views\AdminOneri\OneriGoruntule.cshtml" />
+    <Content Include="Views\AdminOneri\OneriGetir.cshtml" />
+    <Content Include="Views\AdminAnket\Index.cshtml" />
+    <Content Include="Views\AdminOneri\PdfExcel.cshtml" />
+    <Content Include="Views\Anket\Index.cshtml" />
+    <Content Include="Views\Oneri\OneriGiris.cshtml" />
+    <Content Include="Views\Oneri\UploadFile.cshtml" />
+    <Content Include="Views\AdminAnket\AnketListele.cshtml" />
+    <Content Include="Views\AdminAnket\AnketGetir.cshtml" />
+    <Content Include="Views\Anket\Tesekkurler.cshtml" />
+    <Content Include="Views\Oneri\Upload.cshtml" />
+    <Content Include="Views\KullaniciAnketSonuclar\Listele.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52649</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44376/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,49 @@
+﻿@model ibrasOneriAnket.Models.Oneri
+
+@{
+    ViewBag.Title = "OneriGetir";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Öneri Bilgileri</h2>
+@using (Html.BeginForm("OneriGuncelle", "AdminOneri", FormMethod.Post))
+{
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        <label>Ad: </label><br />
+        @Html.TextBoxFor(q => q.Ad, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Soyad: </label><br />
+        @Html.TextBoxFor(q => q.Soyad, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Mevcut Durum </label><br />
+        @Html.TextAreaFor(q => q.MevcutDurum, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Öneri </label><br />
+        @Html.TextAreaFor(q => q.OneriMesajı, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Birim: </label><br />
+        @Html.DropDownListFor(q => q.BirimId, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Değerlendirildi </label><br />
+        @*@Html.DropDownListFor(x => x.Degerlendirme, new[] { new SelectListItem { Text = "Evet", Value = "1" }, new SelectListItem { Text = "Hayır", Value = "0" } }, "Lütfen Seçiniz:", new { @class = "form-control" })*@
+        @Html.DropDownListFor(x => x.Degerlendirme, new[] { new SelectListItem { Text = "Evet", Value = "1" } }, "Lütfen Seçiniz:", new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</div>
+}
+
+
+
+

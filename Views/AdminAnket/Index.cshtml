@@ -1,0 +1,67 @@
+﻿@model ibrasOneriAnket.Models.AnketOlustur
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+    int ibc = 0;
+    ViewBag.dgr = ibc;
+}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<button id="AddButton" class="btn btn-primary">Cevap Ekle</button>
+<form method="post" class="form-control" id="frm1">
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <div class="container">
+                        <br /><label>Anket Adı:</label> @Html.TextBoxFor(x => x.AnketAdi)
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="cevaplar"></td>
+
+            </tr>
+            @*<input type="text" name="[@Model.Id].@Model.AnketAdi">
+                <input type="text" name="[@Model.Id].@Model.Cevaplar">*@
+
+        </tbody>
+    </table>
+    <br /><button class="btn btn-success">OLUŞTUR</button>
+</form>
+ <input type="hidden" id="totalContacts" value="@ViewBag.dgr" />
+
+<style>
+    #frm1{
+        border:none;
+    }
+    label{
+        width:70px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#AddButton").click(function () {
+            tc = parseInt($("#totalContacts").val());
+            tc = tc + 1;
+            $("#totalContacts").val(tc)
+
+            $("#cevaplar").append('<div class="container"><label>Cevap:  </label> <input type="text" name="AnketCevaps[' + (tc - 1) + '].Cevap" /><br></div>')
+        });
+
+        $("#cevaplar").on("click", "span", function () {
+            tc = parseInt($("#totalContacts").val());
+            tc = tc - 1;
+            $("#totalContacts").val(tc)
+
+            $(this).parents("tr").remove();
+        });
+    });
+</script>
