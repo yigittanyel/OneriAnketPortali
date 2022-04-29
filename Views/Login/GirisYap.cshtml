@@ -44,47 +44,99 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="agile_info">
                 <div class="w3l_form">
                     <div class="left_grid_info">
-                        <h1>LÜTFEN GİRİŞ YAPINIZ</h1>
-                        <p>Giriş Yapma Sayfasına Hoş Geldiniz</p>
-                        <img src="~/loginTema/images/image.jpg" alt="" />
+                        <br /><br /><br /><br /><br />
+                        <img src="~/Content/logo.png" id="image" alt="" />
+                        <br />
+                        <h1 id="baslik"> <span style="color:red;">ÖNERİLERİNİZ</span> <br /> BİZİM İÇİN <br /><span style="color:red; text-align:center;">ÇOK DEĞERLİ</span> </h1>
                     </div>
                 </div>
                 <div class="w3_info">
                     <h2>GİRİŞ YAP</h2>
-                    <p>Lütfen bilgilerinizi giriniz.</p>
-                    <form method="post">
-                        <label>Kullanıcı Adı</label>
-                        <div class="input-group" style="height:53px;">
-                            <span class="fa fa-user" aria-hidden="true"></span>
-                            <input type="password" name="KullaniciAdi" placeholder="Kullanıcı Adınız:" required="">
-                        </div>
-                        <label>Şifre</label>
-                        <div class="input-group">
-                            <span class="fa fa-lock" aria-hidden="true"></span>
-                            <input type="Password" name="Sifre" placeholder="Şifreniz" required="">
-                        </div>
-                        <button class="btn btn-danger btn-block" type="submit">Giriş Yap</button><br /><br /><br /><br />
-                    </form>
-                    <a id="a1" href="/Anket/Index" class="btn btn-info">GÜNÜN ANKETİ</a>
-
+                    <p style="color:black; font-weight:400;">Lütfen bilgilerinizi giriniz.</p>
+                    @*@if (Session["KullaniciAdi"] == null)
+                    {*@
+                        <form method="post">
+                            <label>Kullanıcı Adı</label>
+                            <div class="input-group" style="height:53px;">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <input style="padding:14px 10px; margin:0px; border:none;" type="text" name="KullaniciAdi" placeholder="Kullanıcı Adınız" required="" id="kad">
+                            </div>
+                            <label>Şifre</label>
+                            <div class="input-group">
+                                <span class="fa fa-lock" aria-hidden="true"></span>
+                                <input type="Password" name="Sifre" placeholder="Şifreniz" required="">
+                            </div>
+                            <button style="font-size:1.3em; width:218px; height:65px;" class="btn btn-danger btn-block" type="submit" id="btnGirisYap">Giriş Yap</button><br /><br /><br /><br />
+                        </form>
+                        @*}
+                    else
+                    {
+                        <text>
+                            ZATEN ÇIKIŞ YAPTINIZ.
+                        </text>
+                        <br /><br /><br />
+                    }*@
+                    <a id="a1" href="/Anket/Soru" class="btn btn-info"> GÜNÜN ANKETİ </a>
                 </div>
             </div>
             <!-- //main content -->
         </div>
 
     </div>
-<style>
-    #a1{
-        font-size:13px;
-        color:black;
-    }
-        #a1:hover {
-            font-size: 19px;
-            color: blue;
-            font-weight: bold;
-            border: 1px solid black;
-            border-radius: 5px 5px;
+
+    <style>
+        #btnGirisYap:hover {
+            box-sizing: border-box;
+            font-size: 22px;
+            color: black;
+            border: 2px solid black;
+            border-radius: 5px 10px;
+            padding: 18px;
         }
-</style>
+
+        #image {
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            height: 150px;
+        }
+
+        #a1 {
+            box-sizing:border-box;
+            font-size: 22px;
+            color: black;
+            border:2px solid black;
+            border-radius:5px 10px;
+            padding:18px;
+            width:200px;
+            height:50px;
+        }
+
+            #a1:hover {
+                font-size: 25px;
+                color: blue;
+                font-weight: bold;
+                border: 2px solid black;
+                border-radius: 10px 10px;
+                padding: 5px;
+            }
+
+        #kad:hover {
+            border: none;
+        }
+
+        #baslik{
+            margin-left:auto;
+            margin-right:auto;
+            text-shadow:1px 1px 0 black;
+            font-size:50px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $("#kad").attr("autocomplete", "off");
+
+    </script>
 </body>
 </html>

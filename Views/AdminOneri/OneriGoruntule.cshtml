@@ -8,7 +8,8 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h2>Öneri Listesi</h2>
 <br />
-<a href="/AdminOneri/PdfExcel" class="btn btn-outline-success" style="border:2px solid green;margin-bottom:5px";>Pdf ~ Excel</a>
+<a href="/AdminOneri/PdfExcel" class="btn btn-outline-success" style="border:2px solid green;border-radius:10px 10px;margin-bottom:5px" ;>Pdf ~ Excel</a>
+<br />
 <br />
 <table class="table table-striped table-dark" id="tbl1">
     <thead>
@@ -18,8 +19,6 @@
             <th scope="col">Mevcut Durum</th>
             <th scope="col">Öneri</th>
             <th scope="col">Birim</th>
-            <th scope="col">Dosya</th>
-            @*<th scope="col">Değerlendirildi</th>*@
             <th scope="col">Sil</th>
             <th scope="col">Güncelle</th>
         </tr>
@@ -27,18 +26,17 @@
     <tbody>
         @foreach (var x in Model)
         {
-        <tr>
-            <td>@x.Ad</td>
-            <td>@x.Soyad</td>
-            <td>@x.MevcutDurum</td>
-            <td>@x.OneriMesajı</td>
-            <td>@x.Birim.Ad</td>
-            <td>@x.File</td>
-            @*<td>@(x.Durum==true ? "Aktif" : "Pasif") </td>*@
-            @*<td><a href="/AdminOneri/OneriDegerlendir/@x.Id" class="btn btn-">Değerlendir</a></td>*@
-            <td><a href="/AdminOneri/OneriSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>
-            <td><a href="/AdminOneri/OneriGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
-        </tr>
+            <tr>
+                <td>@x.Ad</td>
+                <td>@x.Soyad</td>
+                <td>@x.MevcutDurum</td>
+                <td>@x.OneriMesajı</td>
+                <td>@x.Birim.Ad</td>
+                @*<td>@(x.Durum==true ? "Aktif" : "Pasif") </td>*@
+                @*<td><a href="/AdminOneri/OneriDegerlendir/@x.Id" class="btn btn-">Değerlendir</a></td>*@
+                <td><a href="/AdminOneri/OneriSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>
+                <td><a href="/AdminOneri/OneriGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
+            </tr>
         }
     </tbody>
 </table>
@@ -54,10 +52,22 @@
 
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
 
+
+@*@Html.DevExpress().Button(settings =>
+{
+    settings.Name = "Button";
+    settings.UseSubmitBehavior = false;
+        }).GetHtml()*@
+
+
+
 <script>
 
-    $('#tbl1').dataTable({});
-
+    $('#tbl1').dataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
 </script>
 
 

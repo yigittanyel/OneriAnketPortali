@@ -1,0 +1,248 @@
+﻿@model ibrasOneriAnket.Sinif.Class1
+
+@{
+    ViewBag.Title = "Anket3";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<body>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap" rel="stylesheet" />
+    <form id="frm1" method="post" @*action="/Admin/Index?Id=@ViewBag.id*@ style="margin:25px auto auto 15px;">
+        <fieldset>
+            <form method="post" >
+                @*SORU*@
+                @foreach (var x in Model.DegerAO)
+                {
+                    <h2>SORU) @x.AnketAdi</h2>
+                    <input type="hidden" name="SoruId" value="@x.Id" id="inlineRadio_@x.Id">
+
+                    @*<input style="font-size:30px;border:none; width:2550px; height:auto;" type="text" value="@x.AnketAdi" name="AnketAdi" id="inlineRadio_@x.Id" />*@
+                }
+                @foreach (var y in Model.DegerAC)
+                {
+                    <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="background-color:#176891">
+                        <label>
+                            <input type="radio" name="CevapId" id="inlineRadio_@y.Id" value="@y.Id" />
+                            <span class="radio"></span>
+                            <span class="label">@y.Cevap</span>
+                        </label>
+
+                    </div>
+                    @*<div class="form-check form-check-inline" style="font-size:24px;">
+                            <input class="form-check-input" type="radio" name="CevapId" id="inlineRadio_@y.Id" value="@y.Id">
+                            <label class="form-check-label" for="inlineRadio_@y.Id">@y.Cevap </label>
+                        </div>*@
+                    <br />
+                }
+               <button id="btn1" type="submit" class="btn" style="color: black; background-color: #4e4e4e2e;">Anketi Bitir</button>
+                @*<br /> <button id="btn1" type="button" onlick="Tikla" class="btn" style="background-color:#176891">Next</button>*@
+            </form>
+        </fieldset>
+    </form>
+
+    <style>
+
+        /*#frm1 {
+            background-image: url("img_tree.gif"), url("paper.gif");
+            background-color: #cccccc;
+        }*/
+
+/*        #frm1 {
+            background-image: url("../../Content/Friendsship/friends2.jpg");
+        }*/
+
+
+        h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0 0 3rem;
+        }
+
+        .bulgy-radios {
+            width: 78rem;
+            background: #fff;
+            padding: 3rem 0 3rem 5rem;
+            border-radius: 1rem;
+        }
+
+            .bulgy-radios label {
+                display: block;
+                position: relative;
+                height: 1em;
+                padding-left: 4rem;
+                margin-bottom: 1.75rem;
+                cursor: pointer;
+                font-size: 2.5rem;
+                user-select: none;
+                color: #555;
+                letter-spacing: 1px;
+            }
+
+                .bulgy-radios label:hover input:not(:checked) ~ .radio {
+                    opacity: 0.8;
+                }
+
+            .bulgy-radios .label {
+                display: flex;
+                align-items: center;
+                padding-right: 3rem;
+            }
+
+                .bulgy-radios .label span {
+                    line-height: 1em;
+                }
+
+            .bulgy-radios input {
+                position: absolute;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                left: -2000px;
+            }
+
+                .bulgy-radios input:checked ~ .radio {
+                    background-color: #000000;
+                    transition: background 0.3s;
+                }
+
+                    .bulgy-radios input:checked ~ .radio::after {
+                        opacity: 1;
+                    }
+
+                .bulgy-radios input:checked ~ .label {
+                    color: #000000;
+                }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(1) {
+                        animation-delay: 0.025s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(2) {
+                        animation-delay: 0.05s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(3) {
+                        animation-delay: 0.075s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(4) {
+                        animation-delay: 0.1s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(5) {
+                        animation-delay: 0.125s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(6) {
+                        animation-delay: 0.15s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(7) {
+                        animation-delay: 0.175s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(8) {
+                        animation-delay: 0.2s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(9) {
+                        animation-delay: 0.225s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(10) {
+                        animation-delay: 0.25s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(11) {
+                        animation-delay: 0.275s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(12) {
+                        animation-delay: 0.3s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(13) {
+                        animation-delay: 0.325s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(14) {
+                        animation-delay: 0.35s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(15) {
+                        animation-delay: 0.375s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(16) {
+                        animation-delay: 0.4s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(17) {
+                        animation-delay: 0.425s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(18) {
+                        animation-delay: 0.45s;
+                    }
+
+                    .bulgy-radios input:checked ~ .label span:nth-child(19) {
+                        animation-delay: 0.475s;
+                    }
+
+        .radio {
+            position: absolute;
+            top: 0.2rem;
+            left: 0;
+            height: 2.5rem;
+            width: 2.5rem;
+            background: #c9ded6;
+            border-radius: 50%;
+        }
+
+            .radio::after {
+                content: '';
+                position: absolute;
+                opacity: 0;
+                top: 0.5rem;
+                left: 0.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background: #fff;
+            }
+
+        100% {
+            transform: rotate(0);
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        #btn1 {
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+            #btn1:hover {
+                font-size: 30px;
+            }
+    </style>
+
+    <script>
+        const labels = document.querySelectorAll('.label');
+        labels.forEach(label => {
+            const chars = label.textContent.split('');
+            label.innerHTML = '';
+            chars.forEach(char => {
+                label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+            });
+        })
+
+                //function Tikla() {
+                //    var veri=
+                //    var veri = Response.redirect("/Admin/Index?Id=")
+                //}
+    </script>
+</body>
+

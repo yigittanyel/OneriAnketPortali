@@ -13,5 +13,7 @@ namespace ibrasOneriAnket.Models
         public string KullaniciAdi { get; set; }
         public string Sifre { get; set; }
         public string Rol { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
     }
 }

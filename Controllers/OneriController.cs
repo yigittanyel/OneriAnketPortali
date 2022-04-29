@@ -15,9 +15,20 @@ namespace ibrasOneriAnket.Controllers
         // GET: Oneri
         Context c=new Context();
         [HttpGet]
-
         public ActionResult Index()
         {
+            //int id = 1;
+            //string p;
+            //p = (string)Session["Ad"];
+            //ViewBag.deger = p;
+            ////id = (int)Session["Id"];
+
+            var kullaniciAdi = HttpContext.User.Identity.Name;
+            var kullanici = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == kullaniciAdi);
+
+            ViewBag.Kullanici = kullanici;
+
+
             List<SelectListItem> der = (from x in c.Birims.ToList()
                                         select new SelectListItem
                                         {
@@ -32,11 +43,14 @@ namespace ibrasOneriAnket.Controllers
         [HttpPost]
         public ActionResult Index(Oneri o)
         {
+            Session["KisiAd"] = o.Ad;
+            Session["KisiSoyad"] = o.Soyad;
             o.Durum = true;
             c.Oneris.Add(o);
             c.SaveChanges();
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Anket");
+            //Anket/Soru/Tesekkurler
+            return RedirectToAction("Tesekkurler","Anket/Soru");
         }
 
         [HttpGet]
@@ -44,22 +58,30 @@ namespace ibrasOneriAnket.Controllers
         {
             return PartialView();
         }
-            [HttpPost]
+        [HttpPost]
         public PartialViewResult Upload(HttpPostedFileBase file)
         {
-            if (file != null && file.ContentLength > 0)
+            if (file.ContentLength > 0)
             {
-                var path = Path.Combine(Server.MapPath("~/Uploads"), file.FileName);
+                var _pathname=Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Uploads"), _pathname);
                 file.SaveAs(path);
-                TempData["result"] = "Güncelleme Başarılı.";
             }
 
-            return PartialView();
+            return PartialView("Upload");
         }
 
 
 
 
+
+
+        //public PartialViewResult GirenKisiGoruntule()
+        //{
+        //    ViewBag.ad = c.Oneris.Select(x => x.Ad).FirstOrDefault();
+        //    ViewBag.soyad = c.Oneris.Select(x => x.Soyad).FirstOrDefault();
+        //    return PartialView();
+        //}
 
 
 
@@ -103,4 +125,5 @@ namespace ibrasOneriAnket.Controllers
         //}
 
     }
+
 }

@@ -1,0 +1,45 @@
+﻿@*@using ibrasOneriAnket.Models
+@model List<AnketCevap>
+
+@{
+    ViewBag.Title = "AnketDetay";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+
+<h2>Anket Detayları</h2>
+@using (Html.BeginForm("AnketGuncelle", "AnketDetay", FormMethod.Post))
+{
+    <div class="padding:10px;">
+        @Html.HiddenFor(x )
+        <div>
+            <label>Plaka: </label><br />
+            @Html.TextBoxFor(q => q.Plaka, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Şoför Adı: </label><br />
+            @Html.TextBoxFor(q => q.SoforAdi, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Şoför Soyadı: </label><br />
+            @Html.TextBoxFor(q => q.SoforSoyadi, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Telefon </label><br />
+            @Html.TextAreaFor(q => q.SoforTelefon, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Gidilen Güzergah: </label><br />
+            @Html.DropDownListFor(q => q.ServisId, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
+
+        </div>
+        <div>
+            <label>Rota Detayları: </label><br />
+            @Html.TextAreaFor(q => q.GuzergahDetay, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px;">
+            <button class="btn btn-info">Güncelle</button>
+        </div>
+    </div>
+}*@
+
+

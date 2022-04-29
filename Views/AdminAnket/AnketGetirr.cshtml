@@ -1,0 +1,136 @@
+﻿@model ibrasOneriAnket.Models.AnketOlustur
+@{
+    ViewBag.Title = "AnketGetirr";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+
+<h2>Anket Bilgileri</h2>
+
+@*<a href="/AdminAnket/AnketiKesinlestir" class="btn btn-outline-primary" style="border:3px solid blue;
+border-radius:5px;"> YAYINLA  </a>
+
+<br /><br />*@
+
+@if (Convert.ToInt32(Model.State) == 1)
+{
+    using (Html.BeginForm("AnketGuncelle", "AdminAnket", FormMethod.Post))
+    {
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        <label>Anket Adı: </label><br />
+        @Html.TextBoxFor(q => q.AnketAdi, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Başlangıç: </label><br />
+        @Html.TextBoxFor(a => a.AnketBaslangic, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+    <div>
+        <label>Anket Bitiş </label><br />
+        @Html.TextBoxFor(a => a.AnketBitis, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+    <div>
+        <label>Anket Sıra: </label><br />
+        @Html.TextBoxFor(q => q.AnketSira, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Anketin Durumu:  </label><br />
+        @*@Html.DropDownListFor(model => model.State, new List<SelectListItem>()
+            {
+               new SelectListItem() { Text = "Taslak", Value =1 },
+               new SelectListItem() { Text = "Yayınla", Value = "2"}
+            }, "Lütfen Seçiniz..", new { @class = "form-control" })*@
+
+        @Html.DropDownListFor(m => m.State, new SelectList(new[]
+        {
+            new SelectListItem { Value = null, Text = "Lütfen değer seçiniz: " },
+            new SelectListItem { Value = "1", Text = "Taslak" },
+            new SelectListItem { Value = "2", Text = "Yayınla" },
+        },
+        "Value",
+        "Text"
+        ),
+ new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Aktif/Pasif  </label><br />
+        @Html.DropDownListFor(m => m.State, new SelectList(new[]
+        {
+            new SelectListItem { Value = null, Text = "Lütfen değer seçiniz: " },
+            new SelectListItem { Value = "0", Text = "Pasif" },
+            new SelectListItem { Value = "1", Text = "Aktif" },
+        },
+        "Value",
+        "Text"
+        ),
+ new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</div>
+    }
+
+}
+else if (Convert.ToInt32(Model.State) == 2)
+{
+
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        <label>Anket Adı: </label><br />
+        @Html.TextBoxFor(q => q.AnketAdi, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div>
+        <label>Başlangıç: </label><br />
+        @Html.TextBoxFor(a => a.AnketBaslangic, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Anket Bitiş </label><br />
+        @Html.TextBoxFor(a => a.AnketBitis, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Anket Sıra: </label><br />
+        @Html.TextBoxFor(q => q.AnketSira, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Anketin Durumu:  </label><br />
+        @*@Html.DropDownListFor(model => model.State, new List<SelectListItem>()
+            {
+               new SelectListItem() { Text = "Taslak", Value =1 },
+               new SelectListItem() { Text = "Yayınla", Value = "2"}
+            }, "Lütfen Seçiniz..", new { @class = "form-control" })*@
+
+        @Html.DropDownListFor(m => m.State, new SelectList(new[] {
+            new SelectListItem { Value = "1", Text = "Taslak" },
+            new SelectListItem { Value = "2", Text = "Yayınla" },
+        },
+        "Value",
+        "Text"
+        ),
+ new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Aktif/Pasif  </label><br />
+        @Html.DropDownListFor(m => m.State, new SelectList(new[]
+        {
+            new SelectListItem { Value = null, Text = "Lütfen değer seçiniz: " },
+            new SelectListItem { Value = "0", Text = "Pasif" },
+            new SelectListItem { Value = "1", Text = "Aktif" },
+        },
+        "Value",
+        "Text"
+        ),
+        new { @class = "form-control",@readonly="readonly" })
+    </div>
+</div>
+}
+
+
+<style>
+    label{
+        font-weight:bold;
+    }
+</style>

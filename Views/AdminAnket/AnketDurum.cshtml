@@ -1,0 +1,81 @@
+﻿@model ibrasOneriAnket.Sinif.EnumClass
+
+@{
+    ViewBag.Title = "AnketDurum";
+    Layout = "";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--<br />
+<div class="container">-->
+
+    <!-- Trigger the modal with a button -->
+    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Durumu Değiştir</button>-->
+
+    <!-- Modal -->
+    <!--<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">-->
+
+            <!-- Modal content-->
+            <!--<div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @Html.EnumDropDownListFor(x => x.StateId, " Seçiniz: ", new { @class = "form-control" })
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>-->
+
+
+<body>
+
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-default btn-lg" id="myBtn">Durumu Güncelle</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:15px 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="glyphicon glyphicon-paste"></span> Güncelle</h4>
+                    </div>
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form role="form">
+                            <label>Durumu Seç: </label>
+                            @Html.EnumDropDownListFor(x => x.StateId, " Seçiniz: ", new { @class = "form-control" }) <br />
+                            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Değiştir</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#myBtn").click(function () {
+                $("#myModal").modal();
+            });
+        });
+    </script>
+
+</body>
+</html>

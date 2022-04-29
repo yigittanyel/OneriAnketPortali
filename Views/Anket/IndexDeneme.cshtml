@@ -1,0 +1,116 @@
+﻿@model ibrasOneriAnket.Sinif.Class1
+
+@{
+    ViewBag.Title = "IndexDeneme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<body>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap" rel="stylesheet" />
+
+    <div id="svg_wrap"></div>
+
+    <h4 class="text-center">GÜNÜN ANKETİ</h4>
+    <form method="post">
+        <section>
+            <div class="container" id="surveyD">
+                <div class="quiz-header">
+                    <h2 id="question">Question Text</h2>
+                    @foreach(var x in Model.DegerAO) {
+                    <ul>
+                        <li>
+                            <h2>@x.AnketAdi</h2>
+                            <input type="hidden" name="SoruId" value="@x.Id" id="inlineRadio_@x.Id"><br />
+                        </li>
+                        <li>
+                            <input type="radio" name="answer" id="b" class="answer">
+                            <label for="b" id="b_text">@x.AnketCevaps</label>
+                        </li>
+
+                    </ul>
+                    }
+                </div>
+
+                <button id="submit">Submit</button>
+
+            </div>
+            </div>
+          
+        </section>
+
+
+        <div class="button" id="prev">&larr; Previous</div>
+        <div class="button" id="next">Next &rarr;</div>
+        <div class="button" id="submit">CEVABI GÖNDER</div>
+    </form>
+
+    <style>
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: "Roboto Slab", serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 40px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+
+        .button {
+            background: rgb(237, 40, 70);
+            border-radius: 5px;
+            padding: 15px 25px;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
+        }
+
+        .disabled {
+            display: none;
+        }
+
+        section {
+
+            background: white;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        input {
+            width: 100%;
+            margin: 7px 0px;
+            display: inline-block;
+            padding: 12px 25px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            font-size: 1em;
+            font-family: inherit;
+            background: white;
+        }
+
+        p {
+            text-align: justify;
+            margin-top: 0;
+        }
+    </style>
+
+</body>
+

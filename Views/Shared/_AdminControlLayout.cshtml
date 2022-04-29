@@ -15,6 +15,12 @@
     <link href="~/Web/dist/css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    @Html.DevExpress().GetStyleSheets(
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors }
+)
+    @Html.DevExpress().GetScripts(
+            new Script { ExtensionSuite = ExtensionSuite.Editors }
+    )
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -40,15 +46,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-bars"></i></div>
                             Anket Listesi
                         </a>
-                        <a class="nav-link" href="/KullaniciAnketSonuclar/Listele">
-                            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-chart-bar"></i></div>
-                            Anket Sonuçları
-                        </a>
                         <a class="nav-link" href="/Oneri/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-backward"></i></div>
                             Öneri/Anket Sayfasına Git
                         </a>
-                        <a class="nav-link" href="/Login/CikisYap">
+                        <a class="nav-link" href="/Login/CikisTesekkurler">
                             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-ban"></i></div>
                             Çıkış Yap
                         </a>

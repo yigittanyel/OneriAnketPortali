@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result Visualization</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+               url: '@Url.Action("ResList", "AdminAnket")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawChart(result);
+                    });
+                }
+            });
+        });
+
+        function drawChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Soru');
+            data.addColumn('number', 'Cevaplar');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.CevapId, obj.SoruId]);
+            });
+            data.addRows(dataArray);
+
+            var columnChartOptions = {
+                title: "Anket Sonuçları",
+                width: 1000,
+                height: 400,
+                bar: { groupWidth: "20%" },
+
+            };
+
+            var columnChart = new google.visualization.PieChart(document
+                .getElementById('Piechart_div'));
+
+            columnChart.draw(data, columnChartOptions);
+        }
+    </script>
+</head>
+<body>
+    <div id="Piechart_div"></div>
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+﻿@using ibrasOneriAnket.Models
+@model List<KullaniciAnketCevap>
+@{
+    ViewBag.Title = "AnketSonucu";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+    int i = 1;
+    ViewBag.dgr = i;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Öneri Listesi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+    <link rel="icon" href="~/color-admin/assets/images/favicon.ico" type="image/x-icon">
+    <!-- notifications css -->
+    <!-- Vector CSS -->
+    <!-- simplebar CSS-->
+    <!-- animate CSS-->
+    <!-- Icons CSS-->
+    <link href="~/color-admin/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <!-- Custom Style-->
+    <link href="~/color-admin/assets/css/app-style.css" rel="stylesheet" />
+</head>
+
+<body style="margin:20px;">
+    <h2>Anket Sonucu</h2> <br />
+        <!--Start Dashboard Content-->
+        <div class="row mt-4">
+            <div class="col-12 col-lg-6 col-xl-12">
+                <div class="card gradient-purpink">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="media-body text-left">
+                                <h4 class="text-white">@ViewBag.ad</h4>
+                                <span class="text-white">Verilen Cevap Sayısı: @Model.Count</span>
+                            </div>
+                            <div class="align-self-center"><span id="dash-chart-1"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--End Row-->
+        <!--End Dashboard Content-->
+
+    <!-- End container-fluid-->
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End wrapper-->
+
+    <table id="example" class="table table-striped table-dark dt-responsive nowrap" style="width:100%">
+
+        <thead>
+            <tr>
+                <th></th>
+                <th>Cevaplama Zamanı</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var x in Model)
+
+            {
+                <tr>
+                    <td>Cevap @ViewBag.dgr)</td>
+                    <td>@x.CevaplamaZamani</td>
+                </tr>
+                ViewBag.dgr++;
+            }
+        </tbody>
+
+    </table><br />
+
+    <a href="/AdminAnket/AnketListele" class="btn btn-primary">Önceki Sayfaya Dön</a>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/color-admin/assets/js/jquery.min.js"></script>
+    <script src="~/color-admin/assets/js/popper.min.js"></script>
+    <script src="~/color-admin/assets/js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="~/color-admin/assets/plugins/simplebar/js/simplebar.js"></script>
+    <!-- waves effect js -->
+    <script src="~/color-admin/assets/js/waves.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="~/color-admin/assets/js/sidebar-menu.js"></script>
+    <!-- Custom scripts -->
+    <script src="~/color-admin/assets/js/app-script.js"></script>
+
+    <!-- Vector map JavaScript -->
+    <script src="~/color-admin/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="~/color-admin/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- Sparkline JS -->
+    <script src="~/color-admin/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
+    <!-- Chart js -->
+    <script src="~/color-admin/assets/plugins/Chart.js/Chart.min.js"></script>
+    <!--notification js -->
+    <script src="~/color-admin/assets/plugins/notifications/js/lobibox.min.js"></script>
+    <script src="~/color-admin/assets/plugins/notifications/js/notifications.min.js"></script>
+    <!-- Index js -->
+    <script src="~/color-admin/assets/js/index.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

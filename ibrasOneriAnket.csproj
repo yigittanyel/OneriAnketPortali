@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort>44376</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -46,6 +46,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc5.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -128,13 +135,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Anket\AnketAreaRegistration.cs" />
+    <Compile Include="Areas\Anket\Controllers\SoruController.cs" />
     <Compile Include="Controllers\AdminAnketController.cs" />
     <Compile Include="Controllers\AdminOneriController.cs" />
     <Compile Include="Controllers\AnketController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullaniciAnketSonuclarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OneriController.cs" />
+    <Compile Include="Controllers\VisualizeDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,8 +159,10 @@
     <Compile Include="Models\OneriKullanici.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\PersonelRoleProvider.cs" />
+    <Compile Include="Sinif\ChartClass.cs" />
     <Compile Include="Sinif\Class1.cs" />
     <Compile Include="Sinif\Class2.cs" />
+    <Compile Include="Sinif\EnumClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="color-admin\assets\css\animate.css" />
@@ -265,7 +276,6 @@
     <Content Include="color-admin\assets\plugins\bootstrap-datatable\js\vfs_fonts.js" />
     <Content Include="color-admin\assets\plugins\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
     <Content Include="color-admin\assets\plugins\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
-    <Content Include="color-admin\assets\plugins\Chart.js\Chart.min.js" />
     <Content Include="color-admin\assets\plugins\fullcalendar\css\fullcalendar.css" />
     <Content Include="color-admin\assets\plugins\fullcalendar\js\fullcalendar-custom-script.js" />
     <Content Include="color-admin\assets\plugins\fullcalendar\js\fullcalendar.min.js" />
@@ -337,6 +347,24 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Clean\clean.jfif" />
+    <Content Include="Content\Clean\clean.jpg" />
+    <Content Include="Content\Clean\clean.png" />
+    <Content Include="Content\Clean\clean2.jpg" />
+    <Content Include="Content\Clean\clean4.jpg" />
+    <Content Include="Content\Food\food.jpg" />
+    <Content Include="Content\Food\food2.jpg" />
+    <Content Include="Content\Food\food3.jpg" />
+    <Content Include="Content\Food\food4.jpg" />
+    <Content Include="Content\Food\food5.jpg" />
+    <Content Include="Content\Food\food6.jpg" />
+    <Content Include="Content\Food\foods.jpg" />
+    <Content Include="Content\Friendsship\friends.jpg" />
+    <Content Include="Content\Friendsship\friends2.jpg" />
+    <Content Include="Content\giphy.gif" />
+    <Content Include="Content\goodBye.gif" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -360,10 +388,6 @@
     <Content Include="Web\dist\401.html" />
     <Content Include="Web\dist\404.html" />
     <Content Include="Web\dist\500.html" />
-    <Content Include="Web\dist\assets\demo\chart-area-demo.js" />
-    <Content Include="Web\dist\assets\demo\chart-bar-demo.js" />
-    <Content Include="Web\dist\assets\demo\chart-pie-demo.js" />
-    <Content Include="Web\dist\assets\demo\datatables-demo.js" />
     <Content Include="Web\dist\assets\img\error-404-monochrome.svg" />
     <Content Include="Web\dist\charts.html" />
     <Content Include="Web\dist\css\1.png" />
@@ -389,12 +413,13 @@
     <Content Include="Web\scripts\sb-watch.js" />
     <Content Include="Web\scripts\start-debug.js" />
     <Content Include="Web\scripts\start.js" />
-    <Content Include="Web\src\assets\demo\chart-area-demo.js" />
-    <Content Include="Web\src\assets\demo\chart-bar-demo.js" />
-    <Content Include="Web\src\assets\demo\chart-pie-demo.js" />
-    <Content Include="Web\src\assets\demo\datatables-demo.js" />
     <Content Include="Web\src\assets\img\error-404-monochrome.svg" />
     <Content Include="Web\src\js\scripts.js" />
+    <Content Include="Areas\Anket\Views\web.config" />
+    <Content Include="Areas\Anket\Views\Soru\Index.cshtml" />
+    <Content Include="Areas\Anket\Views\Soru\AnketBitti.cshtml" />
+    <Content Include="Areas\Anket\Views\Soru\Tesekkurler.cshtml" />
+    <Content Include="Content\js\tr.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -480,11 +505,38 @@
     <Content Include="Views\AdminAnket\AnketGetir.cshtml" />
     <Content Include="Views\Anket\Tesekkurler.cshtml" />
     <Content Include="Views\Oneri\Upload.cshtml" />
-    <Content Include="Views\KullaniciAnketSonuclar\Listele.cshtml" />
+    <Content Include="Views\AdminAnket\AnketSonucu.cshtml" />
+    <Content Include="Views\Anket\IndexDeneme.cshtml" />
+    <Content Include="Views\Anket\Anket2.cshtml" />
+    <Content Include="Views\Anket\Anket3.cshtml" />
+    <Content Include="Views\AdminAnket\GenelSonuclar.cshtml" />
+    <Content Include="Views\AdminAnket\GenelSonuc.cshtml" />
+    <Content Include="Views\AdminAnket\GenelSonucc.cshtml" />
+    <Content Include="Views\AdminAnket\GenelSonucGrafik.cshtml" />
+    <Content Include="Views\AdminAnket\VisualizeResult.cshtml" />
+    <Content Include="Views\AdminAnket\ResList.cshtml" />
+    <Content Include="Views\Oneri\GirenKisiGoruntule.cshtml" />
+    <Content Include="Views\AdminAnket\AnketDetay.cshtml" />
+    <Content Include="Views\AdminAnket\AnketDurum.cshtml" />
+    <Content Include="Views\AdminAnket\AnketDurumu.cshtml" />
+    <Content Include="Views\AdminAnket\AnketGetirr.cshtml" />
+    <Content Include="Views\AdminAnket\AnketCevapGoruntule.cshtml" />
+    <Content Include="Views\AdminAnket\AnketCevapGetir.cshtml" />
+    <Content Include="Views\AdminAnket\YeniCevapEkle.cshtml" />
+    <Content Include="Views\Login\CikisTesekkurler.cshtml" />
+    <Content Include="Views\AdminAnket\AnketeAitSonuclar.cshtml" />
+    <Content Include="Views\AdminAnket\SonucPie.cshtml" />
+    <Content Include="Views\VisualizeData\ColumnChart.cshtml" />
+    <Content Include="Views\VisualizeData\AnketeAitSonuclar.cshtml" />
+    <Content Include="Views\VisualizeData\AnketeAitSonuclar2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Anket\Data\" />
+    <Folder Include="Areas\Anket\Views\Shared\" />
     <Folder Include="Content\Uploads\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="UserFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

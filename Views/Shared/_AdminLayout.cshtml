@@ -1,4 +1,4 @@
-﻿
+﻿@using ibrasOneriAnket.Models;
 @{
     Layout = null;
 }
@@ -8,7 +8,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
     <style>
         body {
             margin: 0;
@@ -17,33 +18,49 @@
 
         .topnav {
             overflow: hidden;
-            background-color: #333;
+            background-color: white;
+            opacity: 1;
         }
 
             .topnav a {
                 float: left;
-                color: #f2f2f2;
+                /*color: #f2f2f2;*/
+                color: black;
                 text-align: center;
                 padding: 14px 16px;
+                opacity: 1;
                 text-decoration: none;
                 font-size: 17px;
             }
 
                 .topnav a:hover {
-                    background-color: #ddd;
+                    background-color: #ff0000b5;
+                    opacity: 0.8;
                     color: black;
                     text-decoration: none;
                 }
 
                 .topnav a.active {
-                    background-color: #04AA6D;
+                    background-color: white;
                     color: white;
                 }
+
+        #kullanici-bilgi {
+            display: block;
+            float: right;
+            margin-right: 25px;
+            margin-top: 32px;
+        }
     </style>
+
+
 </head>
-<body>
+<body class="w3-theme-l5">
     <div class="topnav">
-        <a class="nav-link" href="/Anket/Index">
+        <a class="nav-link" href="/Anket/Soru">
+            <img style="float:left;" src="~/Content/logo.png" width="150" />
+        </a>
+        <a class="nav-link" href="/Anket/Soru">
             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-file"></i></div>
             GÜNÜN ANKETİ
         </a>
@@ -51,15 +68,52 @@
             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-plus"></i></div>
             ÖNERİ EKLE
         </a>
-        <a class="nav-link" href="/AdminOneri/OneriGoruntule" style="float:left;">
-            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-lock"></i></div>
-            ADMİN GİRİŞİ
-        </a>
+
+        @if (User.IsInRole("A") || User.IsInRole("E"))
+        {
+            <a id="cikis" class="nav-link" href="/Login/CikisTesekkurler">
+                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-ban"></i></div>
+                Çıkış Yap
+            </a>
+        }
+        @if (ViewBag.Kullanici != null)
+        {
+            <text>
+                <span id="kullanici-bilgi"><b> Sn. @(((Kullanici)ViewBag.Kullanici).Ad) @(((Kullanici)ViewBag.Kullanici).Soyad)  </b> , Öneri-Anket Sistemine Hoş Geldiniz.</span>
+            </text>
+        }
     </div>
 
-    <div style="padding-left:16px">
+    <div style="padding-left:16px" class="w3-theme-l5">
         @RenderBody()
     </div>
+    <style>
+        #kullanici-bilgi {
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+            #kullanici-bilgi:hover {
+                background-color: #ff0000b1;
+            }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#kullanici-bilgi").click(function () {
+                alert("HOŞ GELDİNİZ 😀");
+            });
+        });
+        //$(function () {
+        //    $("#cikis").click(function () {
+        //        alert("İYİ GÜNLER DİLERİZ 👋");
+        //    });
+        //});
+    </script>
 
 </body>
 </html>

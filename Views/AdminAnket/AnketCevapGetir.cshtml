@@ -1,0 +1,37 @@
+﻿@model ibrasOneriAnket.Models.AnketCevap
+
+@{
+    ViewBag.Title = "AnketCevapGetir";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+}
+
+
+    
+@using (Html.BeginForm("AnketCevapGuncelle", "AdminAnket", FormMethod.Post))
+    {
+        <div class="padding:10px;">
+            @Html.HiddenFor(x => x.Id)
+            <div>
+                <label>Cevap: </label><br />
+                @Html.TextBoxFor(q => q.Cevap, new { @class = "form-control" })
+            </div>
+
+
+
+            <div style="margin-top:15px;">
+                <button class="btn btn-info">Güncelle</button>
+            </div>
+        </div>
+    }
+
+<style>
+    label{
+        font-weight:bold;
+    }
+</style>
+
+
+
+
+
+

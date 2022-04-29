@@ -15,11 +15,13 @@ namespace ibrasOneriAnket.Controllers
         [HttpGet]
         public ActionResult GirisYap()
         {
+            ViewBag.c = "Hoşgeldin";
             return View();
         }
         [HttpPost]
         public ActionResult GirisYap(Kullanici d)
         {
+
             var bilgi = c.Kullanicis.FirstOrDefault(x => x.KullaniciAdi == d.KullaniciAdi && x.Sifre == d.Sifre);
             if (bilgi != null&& bilgi.Rol=="A")
             {
@@ -37,11 +39,18 @@ namespace ibrasOneriAnket.Controllers
             {
                 return View();
             }
+
         }
-        public ActionResult CikisYap()
+        //public ActionResult CikisYap()
+        //{
+        //    FormsAuthentication.SignOut();
+        //    return RedirectToAction("GirisYap", "Login");
+        //}
+
+        public ActionResult CikisTesekkurler()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("GirisYap", "Login");
+            return View();
         }
     }
 }

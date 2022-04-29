@@ -1,0 +1,259 @@
+﻿@model ibrasOneriAnket.Models.AnketOlustur
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 class="text-center" style="text-align:center;">
+    @Model.AnketAdi
+</h2>
+
+@foreach (var cevap in Model.AnketCevaps)
+{
+    <div class="text-center">
+        <div id="ygt" class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="background-color:#176891;">
+            <label>
+                <input type="radio" name="CevapId" id="inlineRadio_@cevap.Id" value="@cevap.Id" />
+                <span onclick="Cevapla(@cevap.Id)" id="sp" class="radio"></span>
+                <span onclick="Cevapla(@cevap.Id)" class="label">@cevap.Cevap </span>
+
+            </label>
+        </div><br />
+    </div>
+} 
+
+
+@*<ul>
+        @foreach (var cevap in Model.AnketCevaps)
+        {
+            <li onclick="Cevapla(@cevap.Id)">@cevap.Cevap</li>
+        }
+    </ul>*@
+
+<style>
+    h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 0 0 3rem;
+        margin-top:10px;
+    }
+
+    .bulgy-radios {
+        width: 78rem;
+        background: #fff;
+        border-radius: 1rem;
+    }
+
+        .bulgy-radios label {
+            display: block;
+            position: relative;
+            height: 1em;
+            padding-left: 4rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            font-size: 2.5rem;
+            user-select: none;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+            .bulgy-radios label:hover input:not(:checked) ~ .radio {
+                opacity: 1;
+                background-color:#ff6a00;
+            }
+
+        .bulgy-radios .label {
+            display: flex;
+            align-items: center;
+            padding-right: 3rem;
+        }
+
+            .bulgy-radios .label span {
+                line-height: 1em;
+            }
+
+        .bulgy-radios input {
+            position: absolute;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            left: -2000px;
+        }
+
+            .bulgy-radios input:checked ~ .radio {
+                background-color: #000000;
+                transition: background 0.3s;
+            }
+
+                .bulgy-radios input:checked ~ .radio::after {
+                    opacity: 1;
+                }
+
+            .bulgy-radios input:checked ~ .label {
+                color: #000000;
+            }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(1) {
+                    animation-delay: 0.025s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(2) {
+                    animation-delay: 0.05s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(3) {
+                    animation-delay: 0.075s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(4) {
+                    animation-delay: 0.1s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(5) {
+                    animation-delay: 0.125s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(6) {
+                    animation-delay: 0.15s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(7) {
+                    animation-delay: 0.175s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(8) {
+                    animation-delay: 0.2s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(9) {
+                    animation-delay: 0.225s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(10) {
+                    animation-delay: 0.25s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(11) {
+                    animation-delay: 0.275s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(12) {
+                    animation-delay: 0.3s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(13) {
+                    animation-delay: 0.325s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(14) {
+                    animation-delay: 0.35s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(15) {
+                    animation-delay: 0.375s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(16) {
+                    animation-delay: 0.4s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(17) {
+                    animation-delay: 0.425s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(18) {
+                    animation-delay: 0.45s;
+                }
+
+                .bulgy-radios input:checked ~ .label span:nth-child(19) {
+                    animation-delay: 0.475s;
+                }
+
+    .radio {
+        position: absolute;
+        top: 0.2rem;
+        left: 0;
+        height: 2.5rem;
+        width: 2.5rem;
+        background: #c9ded6;
+        border-radius: 50%;
+margin-left:10px;
+    }
+
+        .radio::after {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            top: 0.5rem;
+            left: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: #fff;
+        }
+    #btn1 {
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+        #btn1:hover {
+            font-size: 30px;
+        }
+
+    #ygt {
+        margin: 3px;
+        padding: 3px;
+        background: #EEEEEE;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+        #ygt:focus{
+            background-color:red;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+</style>
+
+
+
+<script src="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/jquery-1.9.1.min.js"></script>
+<script>
+
+    $(document).on("click", function (event) {
+        $(event.target).closest("#ygt.bulgy-radios").toggleClass("highlight");
+    });
+
+    const labels = document.querySelectorAll('.label');
+    labels.forEach(label => {
+        const chars = label.textContent.split('');
+        label.innerHTML = '';
+        chars.forEach(char => {
+            label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+        });
+    })
+
+    function Cevapla(id) {
+
+        var data = {};
+        data.SoruId = @Model.Id;
+        data.CevapId = id;
+
+        $.post("/Anket/Soru/CevapVer", data)
+            .done(function (data) {
+
+                if (data.Id > 0) {
+                    var soruId = data.Id;
+                    window.location.href = "/Anket/Soru/Index/" + soruId; // sıradaki soruya geç
+                }
+                else {
+                    window.location.href = "/Anket/Soru/AnketBitti"; // anket tamamlandı
+                }
+            });
+    }
+</script>
+

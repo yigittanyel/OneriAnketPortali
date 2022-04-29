@@ -1,5 +1,5 @@
 ﻿@using ibrasOneriAnket.Models
-@model List<AnketCevap>
+@model List<AnketOlustur>
 
 @{
     ViewBag.Title = "AnketListele";
@@ -9,29 +9,33 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h2>Anket Listesi</h2>
 <br />
-<br />
+
 <table class="table table-striped table-dark" id="tbl1">
     <thead>
         <tr>
             <th scope="col">Anket Adı</th>
-            <th scope="col">Cevaplar</th>
-            <th scope="col">Durum</th>
-            <th scope="col">Güncelle</th>
+            <th scope="col">Detaylar</th>
+            <th scope="col">Cevapları Düzenle</th>
+            <th class="text-center" scope="col">Anket Sonuçları</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var x in Model)
         {
-            <tr>
-                <td>@x.AnketOlustur.AnketAdi</td>
-                <td>@x.Cevap</td>
-                <td>@x.AnketOlustur.Durum</td>
-                @*<td><a href="/AdminAnket/AnketSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>*@
-                <td><a href="/AdminAnket/AnketGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
-            </tr>
+        <tr >
+            <td>@x.AnketAdi</td>
+            <td><a href="/AdminAnket/AnketGetirr/@x.Id" class="btn btn-success">Detaylar</a></td>
+            <td><a href="/AdminAnket/AnketCevapGoruntule/@x.Id" class="btn btn-primary">Cevaplar</a></td>
+            <td><a href="/VisualizeData/AnketeAitSonuclar/@x.Id" style="border:1px solid green;margin-left:10px; border-radius:4px;" class="btn btn-outline-success">Sonuç(Bar)</a>
+<a href="/VisualizeData/AnketeAitSonuclar2/@x.Id" style="border:1px solid blue; border-radius:4px;margin-left:8px;" class="btn btn-outline-info">Sonuç(Pie)</a></td>
+        </tr>
         }
     </tbody>
 </table>
+
+
+
+
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -46,7 +50,11 @@
 
 <script>
 
-    $('#tbl1').dataTable({});
+    $('#tbl1').dataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    });
 
 </script>
 

@@ -10,29 +10,39 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<button id="AddButton" class="btn btn-primary">Cevap Ekle</button>
-<form method="post" class="form-control" id="frm1">
+<button style="margin-left:14px;" id="AddButton" class="btn btn-primary">Cevap Ekle</button>
+<form method="post" class="form-control" id="frm1" style="margin-left:-15px;">
     <table>
+
         <thead>
             <tr>
                 <td>
                     <div class="container">
-                        <br /><label>Anket Adı:</label> @Html.TextBoxFor(x => x.AnketAdi)
+                        <br /><label id="lbl1">Anket Adı:</label>
+                        @Html.TextBoxFor(x => x.AnketAdi, new { @class = "form-control" })
+                    </div>
+                    <div class="container">
+                        <br /><p style="font-weight:bold;">Anket Başlangıcı:</p>
+                        @Html.TextBoxFor(a => a.AnketBaslangic, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                    </div>
+                    <div class="container">
+                        <br /><p style="font-weight:bold;">Anket Bitişi:</p>
+                        @Html.TextBoxFor(a => a.AnketBitis, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" }) <br />
+                    </div>
+                    <div class="container">
+                        <p style="font-weight:bold;">Sıra No:</p>
+                        <input type="text" class="form-control" style="width:100px;" maxlength="2" name="siraNo" value="@ViewBag.siraNo"> <br />
                     </div>
                 </td>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <td id="cevaplar"></td>
-
+                <td id="cevaplar"></td>
             </tr>
-            @*<input type="text" name="[@Model.Id].@Model.AnketAdi">
-                <input type="text" name="[@Model.Id].@Model.Cevaplar">*@
-
         </tbody>
     </table>
-    <br /><button class="btn btn-success">OLUŞTUR</button>
+    <button style="margin-left:12px;" class="btn btn-success" type="submit" id="btn1">OLUŞTUR</button>
 </form>
  <input type="hidden" id="totalContacts" value="@ViewBag.dgr" />
 
@@ -52,8 +62,7 @@
             tc = parseInt($("#totalContacts").val());
             tc = tc + 1;
             $("#totalContacts").val(tc)
-
-            $("#cevaplar").append('<div class="container"><label>Cevap:  </label> <input type="text" name="AnketCevaps[' + (tc - 1) + '].Cevap" /><br></div>')
+            $("#cevaplar").append('<div class="container"><p style="font-weight:bold">Cevap: </p> <input type="text" class="form-control" style="display:flex;" name="AnketCevaps[' + (tc - 1) + '].Cevap" /><br></div>')
         });
 
         $("#cevaplar").on("click", "span", function () {

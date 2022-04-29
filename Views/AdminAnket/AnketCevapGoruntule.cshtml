@@ -1,0 +1,55 @@
+﻿@model ibrasOneriAnket.Sinif.Class1
+
+@{
+    ViewBag.Title = "AnketCevapGoruntule";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
+
+    var anketId = Model.DegerAC.FirstOrDefault().AnketOlusturId;
+}
+
+<h2 >Ankete Ait Cevaplar</h2>
+<br />
+
+<a href="/AdminAnket/YeniCevapEkle/@anketId" class="btn btn-outline-primary" style=" float:left;border:2px solid blue; border-radius:4px;">Yeni Cevap Ekle</a> 
+
+
+<b style="display:flex;justify-content:center;text-align:center;"> <span style="border:5px solid green;border-radius:5px;padding:5px; font-size:17px;"> SORU:  @ViewBag.Soru </span></b>
+<br />
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th scope="col">Cevap</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Düzenle</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+            @foreach (var x in Model.DegerAC)
+            {
+        <tr>
+            <td>@x.Cevap</td>
+            @*<td>@(x.CevapDurum ? "Aktif" : "Pasif")</td>*@
+            @if (ViewBag.state == (ibrasOneriAnket.Sinif.State)2)
+            {
+                <td><a href="#" class="btn btn-danger">Sil (X)</a></td>
+                <td><a href="#" class="btn btn-primary">Güncelle (X)</a></td>
+
+            }
+            else
+            {
+                <td><a href="/AdminAnket/AnketCevapSil/@x.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminAnket/AnketCevapGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
+
+
+            }
+
+        </tr>
+            }
+
+    </tbody>
+</table>
+
+
