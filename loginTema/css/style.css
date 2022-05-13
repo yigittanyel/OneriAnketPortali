@@ -445,8 +445,7 @@ h5 {
 		letter-spacing: 0px;
 	}
 	.left_grid_info h1 {
-		font-size: 26px;
-		letter-spacing: 1px;
+		display:none;
 	}
 }
 @media screen and (max-width: 667px){

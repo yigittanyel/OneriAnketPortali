@@ -9,11 +9,9 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<button style="margin-left:14px;" id="AddButton" class="btn btn-primary">Cevap Ekle</button>
+<button style="margin-left:14px;margin-bottom:5px;" id="AddButton" class="btn btn-primary">Cevap Ekle</button>
 <form method="post" class="form-control" id="frm1" style="margin-left:-15px;">
     <table>
-
         <thead>
             <tr>
                 <td>
@@ -44,14 +42,19 @@
     </table>
     <button style="margin-left:12px;" class="btn btn-success" type="submit" id="btn1">OLUŞTUR</button>
 </form>
- <input type="hidden" id="totalContacts" value="@ViewBag.dgr" />
+<input type="hidden" id="totalContacts" value="@ViewBag.dgr" />
 
+@*<div class="container">
+        <button style="margin-left:14px;margin-bottom:5px;" id="AddButton" class="btn btn-primary">Cevap Ekle</button>
+
+    </div>*@
 <style>
-    #frm1{
-        border:none;
+    #frm1 {
+        border: none;
     }
-    label{
-        width:70px;
+
+    label {
+        width: 70px;
     }
 </style>
 

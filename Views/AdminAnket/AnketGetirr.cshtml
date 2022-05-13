@@ -112,19 +112,7 @@ else if (Convert.ToInt32(Model.State) == 2)
         ),
  new { @class = "form-control", @readonly = "readonly" })
     </div>
-    <div>
-        <label>Aktif/Pasif  </label><br />
-        @Html.DropDownListFor(m => m.State, new SelectList(new[]
-        {
-            new SelectListItem { Value = null, Text = "Lütfen değer seçiniz: " },
-            new SelectListItem { Value = "0", Text = "Pasif" },
-            new SelectListItem { Value = "1", Text = "Aktif" },
-        },
-        "Value",
-        "Text"
-        ),
-        new { @class = "form-control",@readonly="readonly" })
-    </div>
+
 </div>
 }
 

@@ -15,6 +15,7 @@ namespace ibrasOneriAnket.Models
         public DbSet<OneriKullanici> OneriKullanicis { get; set; }    
         public DbSet<AnketCevap> AnketCevaps { get; set; }    
         public DbSet<KullaniciAnketCevap> KullaniciAnketCevaps { get; set; }    
+        public DbSet<OneriDokumanlari> OneriDokumanlaris { get; set; }    
 
     }
 }

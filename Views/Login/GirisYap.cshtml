@@ -34,6 +34,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
+    <style>
+        .login-textbox {
+            font-size: 15px;
+            color: #333;
+            text-align: left;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            padding: 14px 10px;
+            width: 93%;
+            display: inline-block;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: 'Raleway', sans-serif;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -44,7 +62,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="agile_info">
                 <div class="w3l_form">
                     <div class="left_grid_info">
-                        <br /><br /><br /><br /><br />
                         <img src="~/Content/logo.png" id="image" alt="" />
                         <br />
                         <h1 id="baslik"> <span style="color:red;">ÖNERİLERİNİZ</span> <br /> BİZİM İÇİN <br /><span style="color:red; text-align:center;">ÇOK DEĞERLİ</span> </h1>
@@ -59,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <label>Kullanıcı Adı</label>
                             <div class="input-group" style="height:53px;">
                                 <span class="fa fa-user" aria-hidden="true"></span>
-                                <input style="padding:14px 10px; margin:0px; border:none;" type="text" name="KullaniciAdi" placeholder="Kullanıcı Adınız" required="" id="kad">
+                                <input class="login-textbox" type="text" name="KullaniciAdi" placeholder="Kullanıcı Adınız" required="" id="kad">
                             </div>
                             <label>Şifre</label>
                             <div class="input-group">
@@ -85,6 +102,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 
     <style>
+        .left_grid_info { text-align:center;}
+
         #btnGirisYap:hover {
             box-sizing: border-box;
             font-size: 22px;
@@ -98,7 +117,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             margin-left: auto;
             margin-right: auto;
             width: 300px;
-            height: 150px;
+            margin-top:15px;
         }
 
         #a1 {

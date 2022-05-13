@@ -18,7 +18,6 @@ namespace ibrasOneriAnket
             //    defaults: new { controller = "Soru", action = "Index", id = UrlParameter.Optional }
             //);
 
-
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 name: "Default",

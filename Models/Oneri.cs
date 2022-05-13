@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -19,5 +20,7 @@ namespace ibrasOneriAnket.Models
         public string File { get; set; }
         public bool Degerlendirme { get; set; }
         public bool Durum { get;set; }
+
+        public virtual List<OneriDokumanlari> OneriDokumanlaris { get; set; }
     }
 }

@@ -52,5 +52,10 @@ namespace ibrasOneriAnket.Controllers
             FormsAuthentication.SignOut();
             return View();
         }
+
+        public ActionResult Deneme()
+        {
+            return View();
+        }
     }
 }

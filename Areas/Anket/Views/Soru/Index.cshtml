@@ -4,24 +4,32 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-<h2 class="text-center" style="text-align:center;">
-    @Model.AnketAdi
-</h2>
-
-@foreach (var cevap in Model.AnketCevaps)
+@if (Model != null)
 {
-    <div class="text-center">
-        <div id="ygt" class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="background-color:#176891;">
-            <label>
-                <input type="radio" name="CevapId" id="inlineRadio_@cevap.Id" value="@cevap.Id" />
-                <span onclick="Cevapla(@cevap.Id)" id="sp" class="radio"></span>
-                <span onclick="Cevapla(@cevap.Id)" class="label">@cevap.Cevap </span>
+    <h2 class="text-center" style="text-align:center;">
 
-            </label>
-        </div><br />
-    </div>
-} 
+        @Model.AnketAdi
+        
+    </h2>
+
+    foreach (var cevap in Model.AnketCevaps)
+    {
+        <div class="text-center">
+            <div id="ygt" class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="background-color:#176891;">
+                <label>
+                    <input type="radio" name="CevapId" id="inlineRadio_@cevap.Id" value="@cevap.Id" />
+                    <span onclick="Cevapla(@cevap.Id)" id="sp" class="radio"></span>
+                    <span onclick="Cevapla(@cevap.Id)" class="label">@cevap.Cevap </span>
+
+                </label>
+            </div><br />
+        </div>
+    }
+            }
+            else
+            {
+                <h1>Şu an mevcutta görüntülenecek bir anket bulunmamaktadır.</h1>
+            }
 
 
 @*<ul>
@@ -36,7 +44,7 @@
         font-size: 3rem;
         font-weight: bold;
         margin: 0 0 3rem;
-        margin-top:10px;
+        margin-top: 10px;
     }
 
     .bulgy-radios {
@@ -61,7 +69,7 @@
 
             .bulgy-radios label:hover input:not(:checked) ~ .radio {
                 opacity: 1;
-                background-color:#ff6a00;
+                background-color: #ff6a00;
             }
 
         .bulgy-radios .label {
@@ -179,7 +187,7 @@
         width: 2.5rem;
         background: #c9ded6;
         border-radius: 50%;
-margin-left:10px;
+        margin-left: 10px;
     }
 
         .radio::after {
@@ -193,6 +201,7 @@ margin-left:10px;
             border-radius: 50%;
             background: #fff;
         }
+
     #btn1 {
         font-weight: bold;
         font-size: 25px;
@@ -206,17 +215,17 @@ margin-left:10px;
         margin: 3px;
         padding: 3px;
         background: #EEEEEE;
-        margin-left:auto;
-        margin-right:auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-        #ygt:focus{
-            background-color:red;
+        #ygt:focus {
+            background-color: red;
         }
 
-        .highlight {
-            background-color: yellow;
-        }
+    .highlight {
+        background-color: yellow;
+    }
 </style>
 
 
@@ -240,8 +249,22 @@ margin-left:10px;
     function Cevapla(id) {
 
         var data = {};
-        data.SoruId = @Model.Id;
-        data.CevapId = id;
+        @if (Model != null) {
+            <text>
+            data.SoruId = @Model.Id;
+            data.CevapId = id;
+            </text>
+        }
+
+
+
+
+        //var dizi = [];
+        //dizi.push(data);
+        //dizi.push(data);
+        //dizi.push(data);
+        //dizi.push(data);
+
 
         $.post("/Anket/Soru/CevapVer", data)
             .done(function (data) {
