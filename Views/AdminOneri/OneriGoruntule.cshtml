@@ -42,32 +42,28 @@
 </table>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-
-<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
-
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-
-<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script src="~/Content/minFiles/jquery.min.js"></script>
+<link href="~/Content/minFiles/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/minFiles/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/minFiles/jquery.dataTables.min.js"></script>
+<script src="~/Content/minFiles/dataTables.bootstrap4.min.js"></script>
 
 
 @*@Html.DevExpress().Button(settings =>
-{
-    settings.Name = "Button";
-    settings.UseSubmitBehavior = false;
-        }).GetHtml()*@
+    {
+        settings.Name = "Button";
+        settings.UseSubmitBehavior = false;
+            }).GetHtml()*@
 
 
 
 <script>
 
     $('#tbl1').dataTable({
-            "language": {
+        "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
-            }
-        });
+        }
+    });
 </script>
 
 

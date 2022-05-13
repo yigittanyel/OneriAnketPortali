@@ -185,6 +185,7 @@
     <Compile Include="Sinif\OneriveDokuman.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\buttons.print.min.js" />
     <Content Include="color-admin\assets\css\animate.css" />
     <Content Include="color-admin\assets\css\app-style.css" />
     <Content Include="color-admin\assets\css\bootstrap.min.css" />
@@ -386,6 +387,39 @@
     <Content Include="Content\img\unknown-file.png" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\minFiles\all.min.js" />
+    <Content Include="Content\minFiles\bootstrap.bundle.min.js" />
+    <Content Include="Content\minFiles\bootstrap.css" />
+    <Content Include="Content\minFiles\bootstrap.min.css" />
+    <Content Include="Content\minFiles\bootstrap.min.js" />
+    <Content Include="Content\minFiles\buttons.bootstrap4.min.css" />
+    <Content Include="Content\minFiles\buttons.colVis.min.js" />
+    <Content Include="Content\minFiles\buttons.html5.min.js" />
+    <Content Include="Content\minFiles\buttons.print.min.js" />
+    <Content Include="Content\minFiles\Chart.min.js" />
+    <Content Include="Content\minFiles\css.css" />
+    <Content Include="Content\minFiles\dataTables.bootstrap.min.css" />
+    <Content Include="Content\minFiles\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\minFiles\dataTables.buttons.min.js" />
+    <Content Include="Content\minFiles\dataTables.responsive.min.js" />
+    <Content Include="Content\minFiles\default_thank_you.css" />
+    <Content Include="Content\minFiles\font-awesome.min.css" />
+    <Content Include="Content\minFiles\html5shiv.js" />
+    <Content Include="Content\minFiles\jquery-1.9.1.min.js" />
+    <Content Include="Content\minFiles\jquery-3.3.1.js" />
+    <Content Include="Content\minFiles\jquery-3.3.1.slim.min.js" />
+    <Content Include="Content\minFiles\jquery-3.4.1.min.js" />
+    <Content Include="Content\minFiles\jquery.dataTables.min.js" />
+    <Content Include="Content\minFiles\jquery.min.js" />
+    <Content Include="Content\minFiles\jszip.min.js" />
+    <Content Include="Content\minFiles\loader.js" />
+    <Content Include="Content\minFiles\normalize.min.css" />
+    <Content Include="Content\minFiles\pdfmake.min.js" />
+    <Content Include="Content\minFiles\responsive.bootstrap.min.css" />
+    <Content Include="Content\minFiles\responsive.bootstrap4.min.css" />
+    <Content Include="Content\minFiles\responsive.bootstrap4.min.js" />
+    <Content Include="Content\minFiles\vfs_fonts.js" />
+    <Content Include="Content\minFiles\w3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
