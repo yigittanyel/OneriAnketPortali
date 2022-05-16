@@ -52,6 +52,7 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
         {
             cevap.CevaplamaZamani = DateTime.Now;
             _dbContext.KullaniciAnketCevaps.Add(cevap);
+            _dbContext.SaveChanges();
 
             var soru = _dbContext.AnketOlusturs.FirstOrDefault(q => q.Id == cevap.SoruId);
 
@@ -65,7 +66,6 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
 
             if (siradakiSoru != null)
             {
-                _dbContext.SaveChanges();
                 return Content(JsonConvert.SerializeObject(siradakiSoru), "application/json");
             }
             return Content(JsonConvert.SerializeObject(new AnketOlustur()), "application/json");           
