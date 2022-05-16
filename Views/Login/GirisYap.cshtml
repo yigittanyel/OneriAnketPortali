@@ -3,12 +3,6 @@
     Layout = null;
 }
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,28 +65,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h2>GİRİŞ YAP</h2>
                     <p style="color:black; font-weight:400;">Lütfen bilgilerinizi giriniz.</p>
                     @*@if (Session["KullaniciAdi"] == null)
-                    {*@
-                        <form method="post">
-                            <label>Kullanıcı Adı</label>
-                            <div class="input-group" style="height:53px;">
-                                <span class="fa fa-user" aria-hidden="true"></span>
-                                <input class="login-textbox" type="text" name="KullaniciAdi" placeholder="Kullanıcı Adınız" required="" id="kad">
-                            </div>
-                            <label>Şifre</label>
-                            <div class="input-group">
-                                <span class="fa fa-lock" aria-hidden="true"></span>
-                                <input type="Password" name="Sifre" placeholder="Şifreniz" required="">
-                            </div>
-                            <button style="font-size:1.3em; width:218px; height:65px;" class="btn btn-danger btn-block" type="submit" id="btnGirisYap">Giriş Yap</button><br /><br /><br /><br />
-                        </form>
-                        @*}
-                    else
-                    {
-                        <text>
-                            ZATEN ÇIKIŞ YAPTINIZ.
-                        </text>
-                        <br /><br /><br />
-                    }*@
+                        {*@
+                    <form method="post">
+                        <label>Kullanıcı Adı</label>
+                        <div class="input-group" style="height:53px;">
+                            <span class="fa fa-user" aria-hidden="true"></span>
+                            <input class="login-textbox" type="text" name="KullaniciAdi" placeholder="Kullanıcı Adınız" required="" id="kad">
+                        </div>
+                        <label>Şifre</label>
+                        <div class="input-group">
+                            <span class="fa fa-lock" aria-hidden="true"></span>
+                            <input type="Password" name="Sifre" placeholder="Şifreniz" required="">
+                        </div>
+                        <button style="font-size:1.3em; width:218px; height:65px;" class="btn btn-danger btn-block" type="submit" id="btnGirisYap">Giriş Yap</button><br /><br /><br /><br />
+                    </form>
+                    @*}
+                        else
+                        {
+                            <text>
+                                ZATEN ÇIKIŞ YAPTINIZ.
+                            </text>
+                            <br /><br /><br />
+                        }*@
                     <a id="a1" href="/Anket/Soru" class="btn btn-info"> GÜNÜN ANKETİ </a>
                 </div>
             </div>
@@ -102,7 +96,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 
     <style>
-        .left_grid_info { text-align:center;}
+        .left_grid_info {
+            text-align: center;
+        }
 
         #btnGirisYap:hover {
             box-sizing: border-box;
@@ -117,18 +113,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             margin-left: auto;
             margin-right: auto;
             width: 300px;
-            margin-top:15px;
+            margin-top: 15px;
         }
 
         #a1 {
-            box-sizing:border-box;
+            box-sizing: border-box;
             font-size: 22px;
             color: black;
-            border:2px solid black;
-            border-radius:5px 10px;
-            padding:18px;
-            width:200px;
-            height:50px;
+            border: 2px solid black;
+            border-radius: 5px 10px;
+            padding: 18px;
+            width: 200px;
+            height: 50px;
         }
 
             #a1:hover {
@@ -144,14 +140,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             border: none;
         }
 
-        #baslik{
-            margin-left:auto;
-            margin-right:auto;
-            text-shadow:1px 1px 0 black;
-            font-size:50px;
+        #baslik {
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 0 black;
+            font-size: 50px;
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/Content/minFiles/jquery.min.js"></script>
 
     <script>
         $("#kad").attr("autocomplete", "off");
