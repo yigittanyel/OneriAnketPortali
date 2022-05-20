@@ -82,7 +82,9 @@ namespace ibrasOneriAnket.Controllers
             var x = c.AnketOlusturs.FirstOrDefault(a => a.Id == p.Id);
             x.Id = p.Id;
             x.AnketAdi = p.AnketAdi;
-            x.Durum = p.Durum;
+            //güncelleyince false geliyordu.
+            x.Durum = true;
+            //x.Durum = p.Durum;
             x.AnketBaslangic = p.AnketBaslangic;
             x.AnketBitis = p.AnketBitis;
             x.AnketSira = p.AnketSira;
