@@ -4,20 +4,30 @@ Based on ASP.NET MVC; Html&amp;Css, Javascript, C# languages and bootstrap, font
 The entity framework code first approach was used in the design of the database.
 
 # In this field employees answers the survey.
-![survey_page](https://user-images.githubusercontent.com/61347219/159989892-a20f1640-e9b7-4f9d-9daa-f4f291605b15.png)
+![anket](https://user-images.githubusercontent.com/61347219/169525443-a8d563c3-15c6-48dd-9c72-352e382c6e7d.png)
 
 # Also we can create dynamic surveys in our admin panel.
-![create_survey](https://user-images.githubusercontent.com/61347219/159990313-132f89b6-1b50-408c-8966-a4f321b3efdb.png)
+![anketOlustur](https://user-images.githubusercontent.com/61347219/169525462-53462b66-109e-4fd9-a87e-483e39521bf6.png)
 
-
-# This is our admin panel.Admin panel has authentication and authorization.
-![login](https://user-images.githubusercontent.com/61347219/159990229-cf011d8c-e8e2-4089-8224-611dd4972402.png)
+# We can show survey and suggest list in our admin control panel.
+![anketListesi](https://user-images.githubusercontent.com/61347219/169525584-5c910af0-f53b-4af6-8063-a0a6a9f38a1b.png)
 
 # Suggestion field
-![suggest_page](https://user-images.githubusercontent.com/61347219/159990357-282dbc8f-ed94-48df-a3ed-53fb9328a581.png)
+![oneri](https://user-images.githubusercontent.com/61347219/169525615-73e3ff78-f643-4e82-a98e-fe0dda05f958.png)
 
-# Admin control panel
-![adminpanel1](https://user-images.githubusercontent.com/61347219/159990396-e8f86588-6902-456e-b6e7-16d88f557a52.png)
+# When you finished survey, there is a thanks page.
+![tesekkurler](https://user-images.githubusercontent.com/61347219/169525721-6deb558f-0bc2-4d61-9ecb-e64e4b26999e.png)
+
+# If you want to add file or pictures to your suggest, you can use qr code.
+![qr](https://user-images.githubusercontent.com/61347219/169525822-09f9bf6b-8ee4-4afe-99db-85969cee6c60.png)
+
+# If you want you can take suggests as pdf or excel.
+![pdf](https://user-images.githubusercontent.com/61347219/169526114-15e0b6b8-3703-4fcd-b1ca-69e183b47185.png)
+
+# We can see surveys results in our admin control panel. We have bar chart and pie chart.
+![sonucPie](https://user-images.githubusercontent.com/61347219/169525971-78082972-89f9-46e8-a1aa-6e55943ee266.png)
+![sonucBar](https://user-images.githubusercontent.com/61347219/169525977-01abf2fc-b2eb-444b-aa44-ad7800d03258.png)
+
 
 I would like to special thank to Sercan Pacaci for his help.
 
