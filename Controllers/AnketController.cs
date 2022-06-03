@@ -23,11 +23,12 @@ namespace ibrasOneriAnket.Controllers
         {
             Class1 c1 = new Class1();
 
-            c1.DegerAC = c.AnketCevaps.Where(a => a.CevapDurum && a.AnketOlusturId == 28).ToList();
-            c1.DegerAO = c.AnketOlusturs.Where(x => x.Durum & x.Id == 28).ToList();
-            //c1.DegerAC = c.AnketCevaps.OrderBy(x=>x.Id).Take(3).ToList();
-            //c1.DegerAO= c.AnketOlusturs.OrderBy(x => x.Id).Take(3).ToList();
-            return View(c1);
+            //c1.DegerAC = c.AnketCevaps.Where(a => a.CevapDurum && a.AnketOlusturId == 28).ToList();
+            //c1.DegerAO = c.AnketOlusturs.Where(x => x.Durum & x.Id == 28).ToList();
+            ////c1.DegerAC = c.AnketCevaps.OrderBy(x=>x.Id).Take(3).ToList();
+            ////c1.DegerAO= c.AnketOlusturs.OrderBy(x => x.Id).Take(3).ToList();
+            //return View(c1);
+            return View();
          }
         [HttpPost]
         public ActionResult Index(KullaniciAnketCevap kac)

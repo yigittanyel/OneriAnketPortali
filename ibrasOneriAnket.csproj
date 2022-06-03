@@ -553,7 +553,6 @@
     <Content Include="Views\AdminOneri\OneriGetir.cshtml" />
     <Content Include="Views\AdminAnket\Index.cshtml" />
     <Content Include="Views\AdminOneri\PdfExcel.cshtml" />
-    <Content Include="Views\Anket\Index.cshtml" />
     <Content Include="Views\Oneri\OneriGiris.cshtml" />
     <Content Include="Views\Oneri\UploadFile.cshtml" />
     <Content Include="Views\AdminAnket\AnketListele.cshtml" />

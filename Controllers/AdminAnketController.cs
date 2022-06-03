@@ -146,13 +146,10 @@ namespace ibrasOneriAnket.Controllers
         {
             Class1 c1 = new Class1();
             c1.DegerAC = c.AnketCevaps.Where(a => a.AnketOlusturId == id).ToList();
-            c1.DegerAO = c.AnketOlusturs.Where(a=>a.Id==id).ToList();
+            c1.DegerAO = c.AnketOlusturs.FirstOrDefault(q => q.Id == id);
 
-
-            ViewBag.state =
-
-            ViewBag.State = c.AnketOlusturs.Where(x=>(Convert.ToInt32(x.State)==1) || Convert.ToInt32(x.State)==2).Select(a => a.State);
-            ViewBag.State = c.AnketOlusturs.Select(a => a.State).FirstOrDefault();
+            //ViewBag.State = c.AnketOlusturs.Where(x=>(Convert.ToInt32(x.State)==1) || Convert.ToInt32(x.State)==2).Select(a => a.State);
+            ViewBag.State = c.AnketOlusturs.FirstOrDefault(q => q.Id == id).State;
             
             //BURADA HATA. silerken soru null geliyor.
             var soru = c.AnketOlusturs.FirstOrDefault(q => q.Id == id);

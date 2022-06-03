@@ -8,6 +8,6 @@ namespace ibrasOneriAnket.Sinif
     public class Class1
     {
         public IEnumerable<AnketCevap> DegerAC { get; set; }  
-        public IEnumerable<AnketOlustur> DegerAO { get; set; }    
+        public AnketOlustur DegerAO { get; set; }    
     }
 }
