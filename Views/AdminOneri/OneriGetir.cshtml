@@ -14,11 +14,11 @@
     @Html.HiddenFor(x => x.Id)
     <div>
         <label>Ad: </label><br />
-        @Html.TextBoxFor(q => q.Ad, new { @class = "form-control" })
+        @Html.TextBoxFor(q => q.Kullanici.Ad, new { @class = "form-control" })
     </div>
     <div>
         <label>Soyad: </label><br />
-        @Html.TextBoxFor(q => q.Soyad, new { @class = "form-control" })
+        @Html.TextBoxFor(q => q.Kullanici.Soyad, new { @class = "form-control" })
     </div>
     <div>
         <label>Mevcut Durum </label><br />
@@ -30,7 +30,7 @@
     </div>
     <div>
         <label>Birim: </label><br />
-        @Html.DropDownListFor(q => q.BirimId, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
+        @Html.DropDownListFor(q => q.Kullanici.Birim.Ad, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
     </div>
     <div>
         <label>Değerlendirildi </label><br />

@@ -15,5 +15,8 @@ namespace ibrasOneriAnket.Models
         public string Rol { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
+
+        public int BirimId { get; set; }
+        public virtual Birim Birim { get; set; }
     }
 }

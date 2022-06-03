@@ -9,6 +9,7 @@ namespace ibrasOneriAnket.Models
     {
         public int Id { get; set; }
         public string Ad { get; set; }
-        public IEnumerable<Oneri>Oneris { get; set; }   
+        public virtual IEnumerable<Oneri> Oneris { get; set; }
+        public virtual IEnumerable<Kullanici> Kullanicilar { get; set; }
     }
 }

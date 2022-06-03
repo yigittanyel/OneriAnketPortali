@@ -27,11 +27,11 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.Ad</td>
-                <td>@x.Soyad</td>
+                <td>@x.Kullanici.Ad</td>
+                <td>@x.Kullanici.Soyad</td>
                 <td>@x.MevcutDurum</td>
                 <td>@x.OneriMesajı</td>
-                <td>@x.Birim.Ad</td>
+                <td>@x.Kullanici.Birim.Ad</td>
                 @*<td>@(x.Durum==true ? "Aktif" : "Pasif") </td>*@
                 @*<td><a href="/AdminOneri/OneriDegerlendir/@x.Id" class="btn btn-">Değerlendir</a></td>*@
                 <td><a href="/AdminOneri/OneriSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>

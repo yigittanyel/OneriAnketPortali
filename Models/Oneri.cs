@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace ibrasOneriAnket.Models
 {
@@ -11,10 +7,9 @@ namespace ibrasOneriAnket.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Ad { get; set; }
-        public string Soyad { get; set; }
-        public int? BirimId { get; set; }
-        public virtual Birim Birim { get; set; }
+        public int KullaniciId { get; set; }
+        public virtual Kullanici Kullanici { get; set; }
+
         public string OneriMesajı { get; set; }
         public string MevcutDurum { get; set; }
         public string File { get; set; }

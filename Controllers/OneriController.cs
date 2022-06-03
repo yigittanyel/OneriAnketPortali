@@ -53,8 +53,8 @@ namespace ibrasOneriAnket.Controllers
         [HttpPost]
         public ActionResult Index(Oneri o)
         {
-            Session["KisiAd"] = o.Ad;
-            Session["KisiSoyad"] = o.Soyad;
+            var user = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == User.Identity.Name);
+            o.KullaniciId = user.Id;
             o.Durum = true;
             c.Oneris.Add(o);
             c.SaveChanges();
@@ -198,11 +198,11 @@ namespace ibrasOneriAnket.Controllers
         [HttpPost]
         public ActionResult OneriGuncelle(Oneri p)
         {
+            var user = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == User.Identity.Name);
+
             var x = c.Oneris.FirstOrDefault(a => a.Id == p.Id);
             x.Id = p.Id;
-            x.Ad = p.Ad;
-            x.Soyad = p.Soyad;
-            x.BirimId = p.BirimId;
+            x.KullaniciId = user.Id;
             x.OneriMesajı = p.OneriMesajı;
             x.MevcutDurum = p.MevcutDurum;
             //x.Degerlendirme = p.Degerlendirme;
