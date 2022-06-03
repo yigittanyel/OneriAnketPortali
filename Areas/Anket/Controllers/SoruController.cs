@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using ibrasOneriAnket.Sinif;
 
 namespace ibrasOneriAnket.Areas.Anket.Controllers
 {
@@ -36,7 +37,7 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
             else
             {
                 anket = _dbContext.AnketOlusturs
-                    .Where(q=> q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Durum==true)
+                    .Where(q=> q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Durum & q.State == State.Yayimlandi)
                     .OrderBy(o => o.AnketSira).FirstOrDefault();
             }
 
@@ -60,7 +61,9 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
                 .Where(q => 
                 q.AnketBaslangic < DateTime.Now &&
                 q.AnketBitis > DateTime.Now &&
-                q.AnketSira > soru.AnketSira )
+                q.AnketSira > soru.AnketSira &&
+                q.State == State.Yayimlandi &&
+                q.Durum)
                 .OrderBy(o => o.AnketSira)
                 .FirstOrDefault();
 

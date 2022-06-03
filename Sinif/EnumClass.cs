@@ -8,7 +8,7 @@ namespace ibrasOneriAnket.Sinif
     public enum State
     {
         Taslak = 1,
-        Yayınla = 2
+        Yayimlandi = 2
     }
     public class EnumClass
     {
