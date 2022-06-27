@@ -1,6 +1,8 @@
 ﻿@using ibrasOneriAnket.Models;
 @{
+    Context c = new Context();
     Layout = null;
+    ViewBag.kullaniciId = c.Kullanicis.FirstOrDefault().Id;
 }
 
 <!DOCTYPE html>
@@ -74,6 +76,14 @@
             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-plus"></i></div>
             ÖNERİ EKLE
         </a>
+
+        @if (User.IsInRole("A") || User.IsInRole("E"))
+        {
+            <a class="nav-link" href="/Oneri/OncekiOneriler/@ViewBag.kullaniciId">
+                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-check-double"></i></div>
+                ÖNCEKİ ÖNERİLER
+            </a>
+        }
 
         @if (User.IsInRole("A") || User.IsInRole("E"))
         {

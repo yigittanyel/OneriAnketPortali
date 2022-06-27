@@ -158,6 +158,7 @@
     <Compile Include="Controllers\AdminAnketController.cs" />
     <Compile Include="Controllers\AdminOneriController.cs" />
     <Compile Include="Controllers\AnketController.cs" />
+    <Compile Include="Controllers\EkranaGoreAnketController.cs" />
     <Compile Include="Controllers\KullaniciAnketSonuclarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OneriController.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Models\Birim.cs" />
     <Compile Include="Models\CustomAuthorization.cs" />
     <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\Kategoriler.cs" />
     <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\KullaniciAnketCevap.cs" />
     <Compile Include="Models\Oneri.cs" />
@@ -587,6 +589,7 @@
     <Content Include="Views\Login\Deneme.cshtml" />
     <Content Include="Views\Oneri\Detay.cshtml" />
     <Content Include="Views\Oneri\OneriGetir.cshtml" />
+    <Content Include="Views\Oneri\OncekiOneriler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -595,6 +598,7 @@
     <Folder Include="Content\Uploads\" />
     <Folder Include="Uploads\" />
     <Folder Include="UserFiles\" />
+    <Folder Include="Views\EkranaGoreAnket\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -655,4 +659,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>

@@ -213,62 +213,12 @@ namespace ibrasOneriAnket.Controllers
             c.SaveChanges();
             return RedirectToAction("Detay");
         }
-        //[HttpGet]
-        //public PartialViewResult UploadFile()
-        //{
-        //    return PartialView();
-        //}
-        //[HttpPost]
-        //public PartialViewResult UploadFile(HttpPostedFileBase file)
-        //{
-        //    if (file != null && file.ContentLength > 0)
-        //    {
-        //        var path = Path.Combine(Server.MapPath("~/Upload_Yukleme"), Path.GetFileName(file.FileName));
-        //        file.SaveAs(path);
-        //        TempData["result"] = "Güncelleme Başarılı.";
-        //        return PartialView();
-        //    }
-
-        //    return PartialView();
-        //}
-        //[HttpPost]
-        //public PartialViewResult UploadFile(HttpPostedFileBase file)
-        //{
-        //    try
-        //    {
-        //        if (file.ContentLength > 0)
-        //        {
-        //            string _FileName = Path.GetFileName(file.FileName);
-        //            string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-        //            file.SaveAs(_path);
-        //        }
-        //        ViewBag.Message = "File Uploaded Successfully!!";
-        //        return PartialView();
-        //    }
-        //    catch
-        //    {
-        //        ViewBag.Message = "File upload failed!!";
-        //        return PartialView();
-        //    }
-        //}
-
-        //[HttpGet]
-        //public PartialViewResult Upload()
-        //{
-        //    return PartialView();
-        //}
-        //[HttpPost]
-        //public PartialViewResult Upload(HttpPostedFileBase file)
-        //{
-        //    if (file.ContentLength > 0)
-        //    {
-        //        var _pathname=Path.GetFileName(file.FileName);
-        //        var path = Path.Combine(Server.MapPath("~/Uploads"), _pathname);
-        //        file.SaveAs(path);
-        //    }
-
-        //    return PartialView("Upload");
-        //}
+        
+        public ActionResult OncekiOneriler(int id)
+        {
+            var deger = c.Oneris.Where(x => x.Kullanici.Id == id).ToList();
+            return View(deger);
+        }
 
     }
 

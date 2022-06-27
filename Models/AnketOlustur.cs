@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,6 +29,8 @@ namespace ibrasOneriAnket.Models
         public char AnketYayinDurumu { get; set; }
 
         public State State { get; set; }
+        public virtual Kategoriler Kategoriler { get; set; }
+
 
         [JsonIgnore]
         public virtual List<AnketCevap> AnketCevaps { get; set;}
