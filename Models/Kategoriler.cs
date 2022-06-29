@@ -10,7 +10,5 @@ namespace ibrasOneriAnket.Models
         public int Id { get; set; }
         public string KategoriAdi { get; set; }
 
-
-
     }
 }

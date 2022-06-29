@@ -7,17 +7,19 @@ using System.Web.Mvc;
 
 namespace ibrasOneriAnket.Controllers
 {
-    [Authorize(Roles ="A")]
+    
     public class AdminOneriController : Controller
     {
         // GET: AdminOneri
         Context c=new Context();
+        [Authorize(Roles = "M,A")]
         public ActionResult OneriGoruntule()
         {
             var deger = c.Oneris.Where(x => x.Durum == true).ToList();
             return View(deger);
         }
         //KİŞİ SİL
+        [Authorize(Roles = "M,A")]
         public ActionResult OneriSil(int id)
         {
             var x = c.Oneris.FirstOrDefault(a => a.Id == id);
@@ -26,6 +28,7 @@ namespace ibrasOneriAnket.Controllers
             return RedirectToAction("OneriGoruntule");
         }
         //ID'YE GÖRE KİŞİ GETİRME
+        [Authorize(Roles = "M,A")]
         public ActionResult OneriGetir(int id)
         {
             List<SelectListItem> dep = (from x in c.Birims.ToList()
@@ -40,6 +43,7 @@ namespace ibrasOneriAnket.Controllers
             var d = c.Oneris.Find(id);
             return View("OneriGetir", d);
         }
+        [Authorize(Roles = "M,A")]
         [HttpPost]
         public ActionResult OneriGuncelle(Oneri p)
         {
@@ -53,15 +57,29 @@ namespace ibrasOneriAnket.Controllers
 
             //BURAYA BİR DAHA BAK!!!
             x.Degerlendirme = true;
-
             c.SaveChanges();
             return RedirectToAction("OneriGoruntule");
         }
+        [Authorize(Roles = "M,A")] //manager
         public ActionResult PdfExcel()
         {
             var deger = c.Oneris.Where(x=>x.Durum==true).ToList();
             return View(deger);
         }
+        [Authorize(Roles = "M")] //manager
+        public ActionResult YoneticiDegerlendirme(int id)
+        {
+            var deger = c.Oneris.Where(x => x.Kullanici.BirimId== id).ToList();
+            return View(deger);
+        }
+
+
+
+
+
+
+
+
         //public ActionResult OneriDegerlendir(int id)
         //{
         //    var x = c.Oneris.FirstOrDefault(a => a.Id == id);

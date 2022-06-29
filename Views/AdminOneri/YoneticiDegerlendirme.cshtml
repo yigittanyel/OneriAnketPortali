@@ -2,14 +2,15 @@
 @model List<Oneri>
 
 @{
-    ViewBag.Title = "OncekiOneriler";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "YoneticiDegerlendirme";
+    Layout = "~/Views/Shared/_AdminControlLayout.cshtml";
 }
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Öneri Değerlendirme</h2>
+<br />
 
-<h3 class="text-center">Verdiğiniz Önceki Öneriler</h3>
-
+<h3 class="text-center">Öneriler</h3>
 <table class="table table-striped table-dark" id="tbl1">
     <thead>
         <tr>
@@ -17,7 +18,7 @@
             <th scope="col">Soyad</th>
             <th scope="col">Mevcut Durum</th>
             <th scope="col">Öneri</th>
-            <th scope="col">Değerlendirilme Durumu</th>
+            <th scope="col">Değerlendirme</th>             
         </tr>
     </thead>
     <tbody>
@@ -28,15 +29,11 @@
             <td>@x.Kullanici.Soyad</td>
             <td>@x.MevcutDurum</td>
             <td>@x.OneriMesajı</td>
-            <td>
-                @(x.Degerlendirme==false ? "Değerlendirilmedi" : "Değerlendirildi")
-            </td>
-            <td><a href="/Oneri/OneriSil/@x.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a></td>
-            <td><a href="/Oneri/OneriGetir/@x.Id" class="btn btn-primary">Güncelle</a></td>
-
-
+            @*<td>@x.OneriMesajı.Substring(0,2)</td>*@
+            <td><a href="/AdminOneri/YoneticiDegerlendirme/@x.Kullanici.BirimId" class="btn btn-success" onclick="return confirm('Kesin Onay?');">Değerlendirme</a></td>
+            @*<td><a href="/AdminOneri/YoneticiDegerlendirme/@x.Id" class="btn btn-success" onclick="return confirm('Kesin Onay?');">Değerlendirme</a></td>*@
         </tr>
-                        }
+        }
     </tbody>
 </table>
 
@@ -64,4 +61,7 @@
         }
     });
 </script>
+
+
+
 

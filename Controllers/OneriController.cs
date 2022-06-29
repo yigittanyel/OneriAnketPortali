@@ -56,6 +56,7 @@ namespace ibrasOneriAnket.Controllers
             var user = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == User.Identity.Name);
             o.KullaniciId = user.Id;
             o.Durum = true;
+            o.Degerlendirme = false;
             c.Oneris.Add(o);
             c.SaveChanges();
 
@@ -156,8 +157,7 @@ namespace ibrasOneriAnket.Controllers
             var x = c.Oneris.FirstOrDefault(a => a.Id == id);
             c.Oneris.Remove(x);
             c.SaveChanges();
-
-            return RedirectToAction("Index", "Oneri");
+            return RedirectToAction("OncekiOneriler", "Oneri",new { id=id } );
         }
 
         [AllowAnonymous]
@@ -198,6 +198,7 @@ namespace ibrasOneriAnket.Controllers
         [HttpPost]
         public ActionResult OneriGuncelle(Oneri p)
         {
+        
             var user = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == User.Identity.Name);
 
             var x = c.Oneris.FirstOrDefault(a => a.Id == p.Id);
@@ -205,18 +206,16 @@ namespace ibrasOneriAnket.Controllers
             x.KullaniciId = user.Id;
             x.OneriMesajı = p.OneriMesajı;
             x.MevcutDurum = p.MevcutDurum;
-            //x.Degerlendirme = p.Degerlendirme;
-
-            //BURAYA BİR DAHA BAK!!!
-            x.Degerlendirme = true;
-
+            x.Degerlendirme = p.Degerlendirme;
+            x.Durum = true;
             c.SaveChanges();
-            return RedirectToAction("Detay");
+            return RedirectToAction("OncekiOneriler","Oneri", new {id=x.Kullanici.Id});
+            //return RedirectToAction("OncekiOneriler", "Oneri", new {id=p.Id});
         }
         
         public ActionResult OncekiOneriler(int id)
         {
-            var deger = c.Oneris.Where(x => x.Kullanici.Id == id).ToList();
+            var deger = c.Oneris.Where(x => x.Kullanici.Id == id && x.Durum==true).ToList();
             return View(deger);
         }
 

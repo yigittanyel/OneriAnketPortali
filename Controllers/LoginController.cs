@@ -23,7 +23,7 @@ namespace ibrasOneriAnket.Controllers
         {
 
             var bilgi = c.Kullanicis.FirstOrDefault(x => x.KullaniciAdi == d.KullaniciAdi && x.Sifre == d.Sifre);
-            if (bilgi != null&& bilgi.Rol=="A")
+            if (bilgi != null && (bilgi.Rol=="A" || bilgi.Rol=="M"))
             {
                 FormsAuthentication.SetAuthCookie(bilgi.KullaniciAdi, true);
                 Session["KullaniciAdi"] = bilgi.KullaniciAdi.ToString();

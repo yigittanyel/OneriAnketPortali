@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+
 }
 
 <!DOCTYPE html>
@@ -38,6 +39,16 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-file"></i></div>
                             Öneriler
                         </a>
+
+                        @if (User.IsInRole("M"))
+                        {
+                                                                                    //x.kullanici.id
+                            <a class="nav-link" href="/AdminOneri/YoneticiDegerlendirme">
+                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-folder-open"></i></div>
+                                Öneri Değerlendirme
+                            </a>
+                        }
+
                         <a class="nav-link" href="/AdminAnket/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-folder-plus"></i></div>
                             Anket Oluştur
@@ -55,7 +66,6 @@
                             Çıkış Yap
                         </a>
 
-                        @*<div class="sb-sidenav-menu-heading">Addons</div>*@
 
                     </div>
                 </div>

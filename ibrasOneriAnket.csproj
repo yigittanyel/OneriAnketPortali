@@ -477,6 +477,7 @@
     <Content Include="Areas\Anket\Views\Soru\AnketBitti.cshtml" />
     <Content Include="Areas\Anket\Views\Soru\Tesekkurler.cshtml" />
     <Content Include="Content\js\tr.json" />
+    <Content Include="Areas\Anket\Views\Soru\Index2.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -590,6 +591,7 @@
     <Content Include="Views\Oneri\Detay.cshtml" />
     <Content Include="Views\Oneri\OneriGetir.cshtml" />
     <Content Include="Views\Oneri\OncekiOneriler.cshtml" />
+    <Content Include="Views\AdminOneri\YoneticiDegerlendirme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

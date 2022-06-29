@@ -158,8 +158,7 @@ namespace ibrasOneriAnket.Controllers
 
             return View(c1);
         }
-
-        public ActionResult AnketCevapSil(int id)
+         public ActionResult AnketCevapSil(int id)
         {
             var x = c.AnketCevaps.FirstOrDefault(a => a.Id == id);
             c.AnketCevaps.Remove(x);

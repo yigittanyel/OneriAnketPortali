@@ -32,12 +32,7 @@
         <label>Birim: </label><br />
         @Html.DropDownListFor(q => q.Kullanici.Birim.Ad, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
     </div>
-    <div>
-        <label>Değerlendirildi </label><br />
-        @*@Html.DropDownListFor(x => x.Degerlendirme, new[] { new SelectListItem { Text = "Evet", Value = "1" }, new SelectListItem { Text = "Hayır", Value = "0" } }, "Lütfen Seçiniz:", new { @class = "form-control" })*@
-        @Html.DropDownListFor(x => x.Degerlendirme, new[] { new SelectListItem { Text = "Evet", Value = "1" } }, "Lütfen Seçiniz:", new { @class = "form-control" })
 
-    </div>
     <div style="margin-top:15px;">
         <button class="btn btn-info">Güncelle</button>
     </div>
