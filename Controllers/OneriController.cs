@@ -20,7 +20,7 @@ using ibrasOneriAnket.Sinif;
 namespace ibrasOneriAnket.Controllers
 {
     [Authorize(Roles = "A,E")]
-    public class OneriController : Controller
+    public class OneriController : BaseController
     {
         // GET: Oneri
         Context c = new Context();
@@ -176,7 +176,6 @@ namespace ibrasOneriAnket.Controllers
             OneriveDokuman od = new OneriveDokuman();
             od.OneriDokumanlaris = c.OneriDokumanlaris.Where(x => x.OneriId == oneriId).ToList();
             od.Oneri = c.Oneris.FirstOrDefault(x => x.Id == oneriId);
-
             return od;
         }
 
@@ -197,10 +196,8 @@ namespace ibrasOneriAnket.Controllers
         }
         [HttpPost]
         public ActionResult OneriGuncelle(Oneri p)
-        {
-        
+        {        
             var user = c.Kullanicis.FirstOrDefault(q => q.KullaniciAdi == User.Identity.Name);
-
             var x = c.Oneris.FirstOrDefault(a => a.Id == p.Id);
             x.Id = p.Id;
             x.KullaniciId = user.Id;
@@ -212,11 +209,19 @@ namespace ibrasOneriAnket.Controllers
             return RedirectToAction("OncekiOneriler","Oneri", new {id=x.Kullanici.Id});
             //return RedirectToAction("OncekiOneriler", "Oneri", new {id=p.Id});
         }
-        
+
         public ActionResult OncekiOneriler(int id)
         {
-            var deger = c.Oneris.Where(x => x.Kullanici.Id == id && x.Durum==true).ToList();
-            return View(deger);
+            int userId = GetKullaniciId();
+            var oncekiOneriler = c.Oneris.Where(q => q.Id == id && q.KullaniciId == userId && q.Durum == true).ToList();
+
+            if (oncekiOneriler != null)
+            {
+
+                return View("OncekiOneriler", oncekiOneriler);
+            }
+
+            return HttpNotFound();
         }
 
     }

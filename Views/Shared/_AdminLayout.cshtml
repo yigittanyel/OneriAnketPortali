@@ -2,7 +2,6 @@
 @{
     Context c = new Context();
     Layout = null;
-    ViewBag.kullaniciId = c.Kullanicis.FirstOrDefault().Id;
 }
 
 <!DOCTYPE html>
@@ -72,18 +71,25 @@
             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-file"></i></div>
             GÜNÜN ANKETİ
         </a>
+        @if (ViewBag.Kullanici != null)
+        {
+            <text>
+                <span id="kullanici-bilgi"><b> Sn. @(((Kullanici)ViewBag.Kullanici).Ad) @(((Kullanici)ViewBag.Kullanici).Soyad)  </b> , Öneri-Anket Sistemine Hoş Geldiniz.</span>
+            </text>
+        }
         <a class="nav-link" href="/Oneri/Index">
             <div class="sb-nav-link-icon"><i class="fas fa-thin fa-plus"></i></div>
             ÖNERİ EKLE
         </a>
 
-        @if (User.IsInRole("A") || User.IsInRole("E"))
+        @*@if (User.IsInRole("A") || User.IsInRole("E"))
         {
-            <a class="nav-link" href="/Oneri/OncekiOneriler/@ViewBag.kullaniciId">
+            <a class="nav-link" href="/Oneri/OncekiOneriler/">
                 <div class="sb-nav-link-icon"><i class="fas fa-solid fa-check-double"></i></div>
                 ÖNCEKİ ÖNERİLER
             </a>
-        }
+
+        }*@
 
         @if (User.IsInRole("A") || User.IsInRole("E"))
         {
@@ -92,12 +98,7 @@
                 Çıkış Yap
             </a>
         }
-        @if (ViewBag.Kullanici != null)
-        {
-            <text>
-                <span id="kullanici-bilgi"><b> Sn. @(((Kullanici)ViewBag.Kullanici).Ad) @(((Kullanici)ViewBag.Kullanici).Soyad)  </b> , Öneri-Anket Sistemine Hoş Geldiniz.</span>
-            </text>
-        }
+
     </div>
 
     <div style="padding-left:16px" class="w3-theme-l5">

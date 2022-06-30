@@ -7,8 +7,8 @@
 <h2 style="margin:25px 25px 25px 35px;">Lütfen Önerinizi Giriniz: </h2>
 
 
-<form method="post"  id="fr1" style="margin:15px; font-size:19px;">
-    <div style  ="padding-top: 15px;" class="c1" >
+<form method="post" id="fr1" style="margin:15px; font-size:19px;">
+    <div style="padding-top: 15px;" class="c1">
         @Html.HiddenFor(x => x.Id)
 
         <div style="padding-top:10px;padding-bottom:10px; height:350px; height:350px;">
@@ -18,26 +18,28 @@
             </div>
             <div style="width: 45%;float:right;margin-right:19px; ">
                 <label style="margin-bottom:12px;">Öneriniz: </label><br />
-                <textarea class="form-control" cols="20" id="OneriMesaj_" name="OneriMesajı" rows="15"></textarea>           
+                <textarea class="form-control" cols="20" id="OneriMesaj_" name="OneriMesajı" rows="15"></textarea>
             </div>
         </div><br /><br />
-            <button id="btnGonder" class="btn btn-success" style="font-size: 28px;  margin-bottom:10px; margin-left:13px; border-radius: 25px 25px; " onclick="myFunction()">Gönder</button>
+        <button id="btnGonder" class="btn btn-success" style="font-size: 28px;  margin-bottom:10px; margin-left:13px; border-radius: 25px 25px; " onclick="myFunction()">Gönder</button>
     </div>
 </form>
 
+                    @*HATA*@
+<a href="/Oneri/OncekiOneriler/" class="btn btn-primary">Önceki Öneriler</a>
 
 <style>
 
     #fr1 {
         background: #176891;
-        width:
     }
+
     label {
         /*background-color: #4e4e4e2e;*/
         background-color: #5cb85c;
         color: white;
-        padding:8px;
-        padding:5px;
-        border-radius:13px;
+        padding: 8px;
+        padding: 5px;
+        border-radius: 13px;
     }
 </style>

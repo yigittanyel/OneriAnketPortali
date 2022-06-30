@@ -1,8 +1,20 @@
-﻿
+﻿@using ibrasOneriAnket.Models;
+
 @{
     Layout = null;
+    Context c = new Context();
+
+    //BURADA HATA VAR. SADECE İLK KULLANICIYA AİT ID GELİYOR, BENİM İSTEDİĞİM HER KULLANICI İÇİN KENDİ KULLANICI IDSİNİ ALIP 
+    //O ŞEKİLDE LAYOUTTAN O ID'Yİ URL OLARAK VERMEK.
+
+
+
+    //ViewBag.kullaniciIdsi = c.AnketOlusturs.FirstOrDefault().Kullanici.Id;
+    //var user = c.AnketOlusturs.FirstOrDefault(q => q.Kullanici.Id.ToString() == User.Identity.Name);
+    //ViewBag.kullaniciIdsi = user.Kullanici.Id;
 
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +54,7 @@
 
                         @if (User.IsInRole("M"))
                         {
-                                                                                    //x.kullanici.id
+                            //x.kullanici.id
                             <a class="nav-link" href="/AdminOneri/YoneticiDegerlendirme">
                                 <div class="sb-nav-link-icon"><i class="fas fa-solid fa-folder-open"></i></div>
                                 Öneri Değerlendirme

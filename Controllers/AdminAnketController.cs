@@ -14,12 +14,12 @@ using System.Windows.Documents;
 
 namespace ibrasOneriAnket.Controllers
 {
-    [Authorize(Roles ="A")]
-    public class AdminAnketController : Controller
+    [Authorize(Roles = "A")]
+    public class AdminAnketController : BaseController
     {
         // GET: AdminAnket
 
-        Context c=new Context();
+        Context c = new Context();
 
         [HttpGet]
         public ActionResult Index()
@@ -36,18 +36,18 @@ namespace ibrasOneriAnket.Controllers
         [HttpPost]
         public ActionResult Index(AnketOlustur ao)
         {
-            var deger =  c.AnketOlusturs.Where(x => x.AnketBaslangic < DateTime.Now
-                         && x.AnketBitis > DateTime.Now && x.Durum)
+            var deger = c.AnketOlusturs.Where(x => x.AnketBaslangic < DateTime.Now
+                        && x.AnketBitis > DateTime.Now && x.Durum)
                          .Max(m => m.AnketSira);
 
             var ab = c.AnketCevaps.FirstOrDefault(x => x.AnketOlusturId == ao.Id);
             ao.Durum = true;
-            ao.AnketSira= deger + 1; 
-            ao.State =(ibrasOneriAnket.Sinif.State)1;       
+            ao.AnketSira = deger + 1;
+            ao.State = (ibrasOneriAnket.Sinif.State)1;
             ao.AnketCevaps.Select(a => a.CevapDurum == true);
             c.AnketOlusturs.Add(ao);
             c.SaveChanges();
-            return RedirectToAction("AnketListele","AdminAnket");
+            return RedirectToAction("AnketListele", "AdminAnket");
         }
         public ActionResult YeniCevapEkle(int id)
         {
@@ -55,13 +55,13 @@ namespace ibrasOneriAnket.Controllers
             soru.Durum = true;
             ViewBag.Soru = soru.AnketAdi;
             var d = c.AnketOlusturs.FirstOrDefault(x => x.Id == id);
-            return View("YeniCevapEkle",d);
+            return View("YeniCevapEkle", d);
         }
 
         [HttpPost]
         public ActionResult YeniCevapEkle(AnketOlustur ac)
         {
-            var x=c.AnketCevaps.Where(a => a.Id == ac.Id).FirstOrDefault();
+            var x = c.AnketCevaps.Where(a => a.Id == ac.Id).FirstOrDefault();
             ac.Durum = true;
             var sadeceDoluOlanlar = ac.AnketCevaps.Where(q => !string.IsNullOrEmpty(q.Cevap)).ToList();
             var anket = c.AnketOlusturs.FirstOrDefault(q => q.Id == ac.Id);
@@ -72,8 +72,12 @@ namespace ibrasOneriAnket.Controllers
 
         public ActionResult AnketListele()
         {
-            var deger = c.AnketOlusturs.Where(x=>x.Durum==true).ToList();
+            //ÖNEMLİ!!!!!!!!!!!!!!!!!!!!!!!!
+            var user = c.Kullanicis.FirstOrDefault(x => x.KullaniciAdi == User.Identity.Name);
+            var deger = c.AnketOlusturs.Where(x => x.Durum && x.Kullanici.Id == user.Id).ToList();
             return View(deger);
+
+            //return View(deger);
         }
 
         [HttpPost]
@@ -96,15 +100,21 @@ namespace ibrasOneriAnket.Controllers
 
         public ActionResult AnketGetirr(int id)
         {
-            var d = c.AnketOlusturs.Find(id);
-            d.Durum = true;
-            return View("AnketGetirr", d);
+            int userId = GetKullaniciId();
+            var anket = c.AnketOlusturs.FirstOrDefault(q=> q.Id == id && q.Kullanici.Id == userId);
+            if (anket != null)
+            {
+                //anket.Durum = true;
+                return View("AnketGetirr", anket);
+            }
+
+            return HttpNotFound();
         }
 
         [HttpPost]
         public ActionResult AnketCevapGuncelle(AnketCevap ac)
         {
-            var x=c.AnketCevaps.FirstOrDefault(a=>a.Id == ac.Id);
+            var x = c.AnketCevaps.FirstOrDefault(a => a.Id == ac.Id);
             x.Id = ac.Id;
             x.Cevap = ac.Cevap;
             x.CevapDurum = true;
@@ -114,6 +124,8 @@ namespace ibrasOneriAnket.Controllers
 
         public ActionResult AnketCevapGetir(int id)
         {
+            var deger = c.AnketOlusturs.FirstOrDefault(a => a.Kullanici.Id == id);
+            ViewBag.kullaniciId = deger.Kullanici.Id;
             var d = c.AnketCevaps.FirstOrDefault(a => a.Id == id);
             return View("AnketCevapGetir", d);
         }
@@ -150,7 +162,7 @@ namespace ibrasOneriAnket.Controllers
 
             //ViewBag.State = c.AnketOlusturs.Where(x=>(Convert.ToInt32(x.State)==1) || Convert.ToInt32(x.State)==2).Select(a => a.State);
             ViewBag.State = c.AnketOlusturs.FirstOrDefault(q => q.Id == id).State;
-            
+
             //BURADA HATA. silerken soru null geliyor.
             var soru = c.AnketOlusturs.FirstOrDefault(q => q.Id == id);
             ViewBag.state = soru.State;
@@ -158,28 +170,28 @@ namespace ibrasOneriAnket.Controllers
 
             return View(c1);
         }
-         public ActionResult AnketCevapSil(int id)
+        public ActionResult AnketCevapSil(int id)
         {
             var x = c.AnketCevaps.FirstOrDefault(a => a.Id == id);
             c.AnketCevaps.Remove(x);
             c.SaveChanges();
-            return RedirectToAction("AnketCevapGoruntule/ "+ x.AnketOlusturId);
+            return RedirectToAction("AnketCevapGoruntule/ " + x.AnketOlusturId);
         }
 
         public ActionResult GenelSonucc()
         {
-            ArrayList xvalue=new ArrayList();
-            ArrayList yvalue=new ArrayList();
+            ArrayList xvalue = new ArrayList();
+            ArrayList yvalue = new ArrayList();
             var veri = c.KullaniciAnketCevaps.ToList();
-            veri.ToList().ForEach(a =>xvalue.Add(a.SoruId));   
+            veri.ToList().ForEach(a => xvalue.Add(a.SoruId));
             //veri.ToList().ForEach(a =>yvalue.Add("SELECT COUNT(CevapId)FROM KullaniciAnketCevaps WHERE CevapId = a.CevapId"));
-            veri.ToList().ForEach(a =>yvalue.Add((from row in c.KullaniciAnketCevaps
-                                                  where row.CevapId == a.CevapId
-                                                  select row).Count()));
-            var dgr= c.KullaniciAnketCevaps.Where(p => p.Id>0).Count().ToString();
+            veri.ToList().ForEach(a => yvalue.Add((from row in c.KullaniciAnketCevaps
+                                                   where row.CevapId == a.CevapId
+                                                   select row).Count()));
+            var dgr = c.KullaniciAnketCevaps.Where(p => p.Id > 0).Count().ToString();
 
             var grafik = new Chart(width: 750, height: 750).AddTitle("Sonuçlar").AddSeries
-                (chartType: "Column", name: "SoruId", xValue:xvalue, yValues: yvalue);
+                (chartType: "Column", name: "SoruId", xValue: xvalue, yValues: yvalue);
             return File(grafik.ToWebImage().GetBytes(), "image/jpeg");
         }
 
@@ -188,7 +200,7 @@ namespace ibrasOneriAnket.Controllers
             var d = c.AnketOlusturs.FirstOrDefault(a => a.Id == id);
             ArrayList xvalue = new ArrayList();
             ArrayList yvalue = new ArrayList();
-            var veri = c.KullaniciAnketCevaps.Where(x=>x.Id==id).ToList();
+            var veri = c.KullaniciAnketCevaps.Where(x => x.Id == id).ToList();
             veri.ToList().ForEach(a => xvalue.Add(a.SoruId));
             //veri.ToList().ForEach(a =>yvalue.Add("SELECT COUNT(CevapId)FROM KullaniciAnketCevaps WHERE CevapId = a.CevapId"));
             veri.ToList().ForEach(a => yvalue.Add((from row in c.KullaniciAnketCevaps

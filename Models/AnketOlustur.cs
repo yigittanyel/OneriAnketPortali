@@ -14,8 +14,7 @@ namespace ibrasOneriAnket.Models
     {
         public AnketOlustur()
         {
-            AnketCevaps = new List<AnketCevap>();
-
+            AnketCevaps=new List<AnketCevap>();
         }
         public int Id { get; set; }
         public string AnketAdi { get; set; }
@@ -31,6 +30,7 @@ namespace ibrasOneriAnket.Models
         public State State { get; set; }
         public virtual Kategoriler Kategoriler { get; set; }
 
+        public virtual Kullanici Kullanici { get; set; }
 
         [JsonIgnore]
         public virtual List<AnketCevap> AnketCevaps { get; set;}

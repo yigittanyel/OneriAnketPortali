@@ -7,6 +7,7 @@ namespace ibrasOneriAnket.Models
 {
     public class AnketCevap
     {
+
         public int Id { get; set; }
         public int AnketOlusturId { get; set; }
         public string Cevap { get; set; }

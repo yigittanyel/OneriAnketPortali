@@ -5,7 +5,9 @@ namespace ibrasOneriAnket.Models
 {
     public class Oneri
     {
-        [Key]
+
+
+        [Key]       
         public int Id { get; set; }
         public int KullaniciId { get; set; }
         public virtual Kullanici Kullanici { get; set; }
