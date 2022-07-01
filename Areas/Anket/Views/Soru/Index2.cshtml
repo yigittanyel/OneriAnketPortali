@@ -269,11 +269,10 @@ else
 
         $.post("/Anket/Soru/CevapVer", data)
             .done(function (data) {
-
                 if (data.Id > 0) {
                     //var soruId = data.Id;
-                    var kategoriId = data.katId;
-                    window.location.href = "/Anket/Soru/Index2/" + kategoriId; // sıradaki soruya geç
+                    var kategoriId = data.Kategoriler.Id;
+                    window.location.href = "/Anket/Soru/Index2/" + kategoriId+"/"+data.Id; // sıradaki soruya geç
                 }
                 else {
                     window.location.href = "/Anket/Soru/AnketBitti"; // anket tamamlandı

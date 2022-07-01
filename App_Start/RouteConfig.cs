@@ -19,11 +19,19 @@ namespace ibrasOneriAnket
             //);
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+           
+   routes.MapRoute(
+          name: "KategoriSorulari",
+          url: "{area}/{controller}/{action}/{id}/{soruId}",
+          defaults: new { area = "Anket", controller = "Soru", action = "Index2", soruId = UrlParameter.Optional }
+      );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Soru", action = "Index", id = UrlParameter.Optional }
             );
+
+         
         }
     }
 }

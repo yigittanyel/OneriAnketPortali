@@ -25,24 +25,40 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
         }
 
         // GET: Anket/Soru
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
             AnketOlustur anket = new AnketOlustur();
 
-            if (id.HasValue)
+            //if (id.HasValue)
+            //{
+            //    anket = _dbContext.AnketOlusturs.FirstOrDefault(q => q.Id == id);
+            //}
+            //else
+            //{
+                anket = _dbContext.AnketOlusturs
+                    .Where(q=> q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Durum & q.State == State.Yayimlandi)
+                    .OrderBy(o => o.AnketSira).FirstOrDefault();
+            //}
+
+            return View(anket);
+        }
+        public ActionResult Index2(int id,int? soruId)
+        {
+            AnketOlustur anket = new AnketOlustur();
+
+            if (soruId.HasValue)
             {
-                anket = _dbContext.AnketOlusturs.FirstOrDefault(q => q.Id == id);
+                anket = _dbContext.AnketOlusturs.FirstOrDefault(q => q.Kategoriler.Id == id && q.Id == soruId);
             }
             else
             {
                 anket = _dbContext.AnketOlusturs
-                    .Where(q=> q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Durum & q.State == State.Yayimlandi)
+                    .Where(q => q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Kategoriler.Id == id && q.Durum & q.State == State.Yayimlandi)
                     .OrderBy(o => o.AnketSira).FirstOrDefault();
             }
 
-            return View(anket);
+            return View("~/Areas/Anket/Views/Soru/Index2.cshtml",anket) ;
         }
-
         public ActionResult AnketBitti()
         {
             Context c = new Context();
@@ -66,7 +82,7 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
                 q.AnketBitis > DateTime.Now &&
                 q.AnketSira > soru.AnketSira &&
                 q.State == State.Yayimlandi &&
-                q.Kategoriler.Id==cevap.Id &&
+                q.Kategoriler.Id==soru.Kategoriler.Id &&
                 q.Durum)
                 .OrderBy(o => o.AnketSira)
                 .FirstOrDefault();
@@ -129,23 +145,7 @@ namespace ibrasOneriAnket.Areas.Anket.Controllers
             return View(id);
         }
 
-        public ActionResult Index2(int? id)
-        {
-            AnketOlustur anket = new AnketOlustur();
 
-            if (id.HasValue)
-            {
-                anket = _dbContext.AnketOlusturs.FirstOrDefault(q => q.Kategoriler.Id == id);
-            }
-            else
-            {
-                anket = _dbContext.AnketOlusturs
-                    .Where(q => q.AnketBaslangic < DateTime.Now && q.AnketBitis > DateTime.Now && q.Kategoriler.Id==id && q.Durum & q.State == State.Yayimlandi)
-                    .OrderBy(o => o.AnketSira).FirstOrDefault();
-            }
-
-            return View(anket);
-        }
 
     }
 }
