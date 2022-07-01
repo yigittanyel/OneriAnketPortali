@@ -12,15 +12,8 @@
     using (Html.BeginForm("OneriGuncelle", "Oneri", FormMethod.Post))
     {
         <div class="padding:10px;">
+            @Html.HiddenFor(x => x.KullaniciId)
             @Html.HiddenFor(x => x.Id)
-            <div>
-                <label>Ad: </label><br />
-                @Html.TextBoxFor(q => q.Kullanici.Ad, new { @class = "form-control" })
-            </div>
-            <div>
-                <label>Soyad: </label><br />
-                @Html.TextBoxFor(q => q.Kullanici.Soyad, new { @class = "form-control" })
-            </div>
             <div>
                 <label>Mevcut Durum </label><br />
                 @Html.TextAreaFor(q => q.MevcutDurum, new { @class = "form-control" })
@@ -29,10 +22,11 @@
                 <label>Öneri </label><br />
                 @Html.TextAreaFor(q => q.OneriMesajı, new { @class = "form-control" })
             </div>
+            @*DOSYA GÜNCELLEME
             <div>
-                <label>Birim: </label><br />
-                @Html.DropDownListFor(q => q.Kullanici.Birim.Ad, (List<SelectListItem>)ViewBag.dp, new { @class = "form-control" })
-            </div>
+                <label>Dosya: </label><br />
+                @Html.TextAreaFor(q => q.File, new { @class = "form-control" })
+            </div>*@
 
             <div style="margin-top:15px;">
                 <button class="btn btn-info">Güncelle</button>

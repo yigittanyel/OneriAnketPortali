@@ -154,10 +154,10 @@ namespace ibrasOneriAnket.Controllers
 
         public ActionResult OneriSil(int id)
         {
-            var x = c.Oneris.FirstOrDefault(a => a.Id == id);
+            var x = c.Oneris.FirstOrDefault(a => a.KullaniciId == id);
             c.Oneris.Remove(x);
             c.SaveChanges();
-            return RedirectToAction("OncekiOneriler", "Oneri",new { id=id } );
+            return RedirectToAction("OncekiOnerileriniz", "Oneri" );
         }
 
         [AllowAnonymous]
@@ -204,9 +204,10 @@ namespace ibrasOneriAnket.Controllers
             x.OneriMesajı = p.OneriMesajı;
             x.MevcutDurum = p.MevcutDurum;
             x.Degerlendirme = p.Degerlendirme;
+            x.File=p.File;
             x.Durum = true;
             c.SaveChanges();
-            return RedirectToAction("OncekiOneriler","Oneri", new {id=x.Kullanici.Id});
+            return RedirectToAction("OncekiOnerileriniz","Oneri");
             //return RedirectToAction("OncekiOneriler", "Oneri", new {id=p.Id});
         }
 
@@ -222,6 +223,17 @@ namespace ibrasOneriAnket.Controllers
             }
 
             return HttpNotFound();
+        }
+
+        public ActionResult OncekiOnerileriniz()
+        {
+            var user = c.Kullanicis.FirstOrDefault(x => x.KullaniciAdi == User.Identity.Name);
+            var deger = c.Oneris.Where(x => x.Durum && x.Kullanici.Id == user.Id).ToList();
+
+            if (deger != null)
+                return View(deger);
+            else
+                return HttpNotFound();
         }
 
     }
